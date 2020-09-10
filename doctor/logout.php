@@ -1,5 +1,5 @@
 <?php
-include "assets/fxn.php";
+include "../assets/fxn.php";
 $token = $_SESSION['token'];
 doThis("UPDATE `doctoken` SET `lastLogoutAt`=CURRENT_TIMESTAMP() WHERE `token`='$token'");
 // doThis("UPDATE `doctoken` SET `lastLogoutAt`=CURRENT_TIMESTAMP(),`enabled`='0' WHERE `token`='$token'");

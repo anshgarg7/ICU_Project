@@ -1,5 +1,5 @@
 <?php
-include "assets/fxn.php";
+include "../assets/fxn.php";
 if (isset($_SESSION["UID"]) == null) {
 ?>
     <script type="text/javascript">
@@ -21,7 +21,7 @@ $hospital = $hospital[0];
 ?>
 
 <head>
-    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
@@ -36,9 +36,9 @@ $hospital = $hospital[0];
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <meta name="description" content="This is an example dashboard created using build-in elements and components.">
     <meta name="msapplication-tap-highlight" content="no">
-    <link href="assets/main.css" rel="stylesheet">
+    <link href="../assets/main.css" rel="stylesheet">
 </head>
-<script type="text/javascript" src="assets/scripts/main.js"></script>
+<script type="text/javascript" src="../assets/scripts/main.js"></script>
 
 <body onload="StartTimers();" onmousemove="ResetTimers();">
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
@@ -79,7 +79,7 @@ $hospital = $hospital[0];
                                 <div class="widget-content-left">
                                     <div class="btn-group">
 
-                                        <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt="">
+                                        <img width="42" class="rounded-circle" src="../assets/images/avatars/1.jpg" alt="">
 
                                     </div>
                                 </div>

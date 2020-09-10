@@ -1,5 +1,5 @@
 <?php
-require "../assets/fxn.php";
+require "../../assets/fxn.php";
 $name = e_d('e', $_POST['name']);
 $phone = e_d('e', $_POST['phone']);
 $email = e_d('e', $_POST['email']);

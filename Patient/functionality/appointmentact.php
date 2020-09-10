@@ -1,5 +1,5 @@
 <?php
-include "../assets/fxn.php";
+include "../../assets/fxn.php";
 $patientID = $_SESSION["UID"];
 
 

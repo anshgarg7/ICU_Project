@@ -1,5 +1,5 @@
 <?php
-include "../assets/fxn.php";
+include "../../assets/fxn.php";
 if (isset($_POST['submit'])) {
     $token = $_POST['token'];
     $ipd = getThis("SELECT `id` FROM `ipdappointment` WHERE `ipdToken` = '$token' AND `enabled` = '1' ");

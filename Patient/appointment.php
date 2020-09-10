@@ -8,7 +8,7 @@ include "dash_common.php";
     $("#Country_c").change(function() {
       var CountryID = $("#Country_c").val();
       $.ajax({
-        url: 'assets/worldData.php',
+        url: '../assets/worldData.php',
         method: 'post',
         data: 'Country=' + CountryID
       }).done(function(countries) {
@@ -24,7 +24,7 @@ include "dash_common.php";
     $("#State_c").change(function() {
       var StateID = $("#State_c").val();
       $.ajax({
-        url: 'assets/worldData.php',
+        url: '../assets/worldData.php',
         method: 'post',
         data: 'State=' + StateID
       }).done(function(states) {
@@ -42,7 +42,7 @@ include "dash_common.php";
     $("#City_c").change(function() {
       var CityID = $("#City_c").val();
       $.ajax({
-        url: 'assets/worldData.php',
+        url: '../assets/worldData.php',
         method: 'post',
         data: 'City=' + CityID
       }).done(function(cities) {
@@ -59,7 +59,7 @@ include "dash_common.php";
     $("#hospital_c").change(function() {
       var hospitalID = $("#hospital_c").val();
       $.ajax({
-        url: 'assets/worldData.php',
+        url: '../assets/worldData.php',
         method: 'post',
         data: 'hospital=' + hospitalID
       }).done(function(hospitals) {
@@ -78,7 +78,7 @@ include "dash_common.php";
     $("#doctor_c").change(function() {
       var doctorID = $("#doctor_c").val();
       $.ajax({
-        url: 'assets/worldData.php',
+        url: '../assets/worldData.php',
         method: 'post',
         data: 'doctor=' + doctorID
       }).done(function(doctors) {
@@ -89,7 +89,7 @@ include "dash_common.php";
     $("#doctor_c").change(function() {
       var doctorID = $("#doctor_c").val();
       $.ajax({
-        url: 'assets/worldData.php',
+        url: '../assets/worldData.php',
         method: 'post',
         data: 'doctor1=' + doctorID
       }).done(function(doctors1) {

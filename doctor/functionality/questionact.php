@@ -1,5 +1,5 @@
 <?php
-include "../assets/fxn.php";
+include "../../assets/fxn.php";
 if(isset($_POST["submit"])){
 $question = $_POST['question'];
 $doctorID = $_POST['doctorID'];

@@ -1,5 +1,5 @@
 <?php
-include "../assets/fxn.php";
+include "../../assets/fxn.php";
 $id = $_SESSION['UID'];
 if (isset($_POST['submit'])) {
     $prepTime = $_POST['prepTime'];

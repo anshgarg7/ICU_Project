@@ -1,4 +1,4 @@
-<?php include "assets/fxn.php" ;?>
+<?php include "../assets/fxn.php" ;?>
 
 
 <html lang="en">
@@ -12,7 +12,7 @@
 
 	<div class="limiter">
 		<div class="container-login100">
-			<div class="login100-more" style="background-image: url('../assets/images/bg-02.jpg');"></div>
+			<div class="login100-more" style="background-image: url('../../assets/images/bg-02.jpg');"></div>
 
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
 				<form class="login100-form validate-form" action="functionality/patient_registeract.php" method="post">
@@ -128,7 +128,7 @@ $(document).ready(function(){
 	$("#Country_c").change(function(){
 		var CountryID = $("#Country_c").val();
 		$.ajax({
-			url: 'assets/worldData.php',
+			url: '../assets/worldData.php',
 			method: 'post',
 			data: 'Country='+CountryID
 		}).done(function(countries){
@@ -144,7 +144,7 @@ $(document).ready(function(){
 	$("#State_c").change(function(){
 		var StateID = $("#State_c").val();
 		$.ajax({
-			url: 'assets/worldData.php',
+			url: '../assets/worldData.php',
 			method: 'post',
 			data: 'State='+StateID
 		}).done(function(states){

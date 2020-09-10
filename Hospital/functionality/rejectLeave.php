@@ -1,5 +1,5 @@
 <?php
-include "../assets/fxn.php";
+include "../../assets/fxn.php";
 $id = $_GET['id'];
 $id = e_d('d', $id);
 $res = doThis("UPDATE `doctorLeaves` SET `enabled` = '2' WHERE `id` = '$id'");

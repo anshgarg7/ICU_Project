@@ -1,5 +1,5 @@
 <?php
-include "../assets/fxn.php";
+include "../../assets/fxn.php";
 
 $id = $_GET['id'];
 $id = e_d('d',$id);

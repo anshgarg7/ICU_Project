@@ -1,5 +1,5 @@
 <?php
-include "../assets/fxn.php";
+include "../../assets/fxn.php";
 $id = $_SESSION["UID"];
 $ipdId = e_d('d', $_GET['id']);
 $patientToken = substr(e_d('e', $id . "-/#" . time() . "-/#" . rand(0, 99999)), 0, 6);

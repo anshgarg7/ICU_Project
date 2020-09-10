@@ -107,7 +107,7 @@
 		$("#Country_c").change(function() {
 			var CountryID = $("#Country_c").val();
 			$.ajax({
-				url: 'assets/worldData.php',
+				url: '../assets/worldData.php',
 				method: 'post',
 				data: 'Country=' + CountryID
 			}).done(function(countries) {
@@ -123,7 +123,7 @@
 		$("#State_c").change(function() {
 			var StateID = $("#State_c").val();
 			$.ajax({
-				url: 'assets/worldData.php',
+				url: '../assets/worldData.php',
 				method: 'post',
 				data: 'State=' + StateID
 			}).done(function(states) {

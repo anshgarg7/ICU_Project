@@ -1,5 +1,5 @@
 <?php
-include "assets/fxn.php";
+include "../assets/fxn.php";
 if (isset($_SESSION["UID"]) == null) {
 ?>
     <script type="text/javascript">
@@ -80,7 +80,7 @@ include "patient_dash_common.php";
         $("#room_c").change(function() {
             var roomID = $("#room_c").val();
             $.ajax({
-                url: 'assets/worldData.php',
+                url: '../assets/worldData.php',
                 method: 'post',
                 data: 'room=' + roomID
             }).done(function(rooms) {

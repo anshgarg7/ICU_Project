@@ -1,5 +1,5 @@
 <?php
-include "assets/fxn.php";
+include "../assets/fxn.php";
 // include "inner_links.php";
 if (isset($_SESSION["UID"]) == null) {
 ?>
@@ -19,7 +19,7 @@ $phone = e_d('d', $_SESSION["phoneNumber"]);
 <html lang="en">
 
 <head>
-    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png" />
 
 
 
@@ -46,9 +46,9 @@ $phone = e_d('d', $_SESSION["phoneNumber"]);
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <meta name="description" content="This is an example dashboard created using build-in elements and components.">
     <meta name="msapplication-tap-highlight" content="no">
-    <link href="assets/main.css" rel="stylesheet">
+    <link href="../assets/main.css" rel="stylesheet">
 
-    <script type="text/javascript" src="assets/scripts/main.js"></script>
+    <script type="text/javascript" src="../assets/scripts/main.js"></script>
 </head>
 
 <body>
@@ -90,7 +90,7 @@ $phone = e_d('d', $_SESSION["phoneNumber"]);
                                 <div class="widget-content-left">
                                     <div class="btn-group">
 
-                                        <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt="">
+                                        <img width="42" class="rounded-circle" src="../assets/images/avatars/1.jpg" alt="">
 
                                     </div>
                                 </div>

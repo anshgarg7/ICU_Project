@@ -1,5 +1,5 @@
 <?php
-include "../assets/fxn.php";
+include "../../assets/fxn.php";
 if (isset($_SESSION["UID"]) == null) {
 ?>
     <script type="text/javascript">

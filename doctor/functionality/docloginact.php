@@ -1,5 +1,5 @@
 <?php
-include "../assets/fxn.php";
+include "../../assets/fxn.php";
 $user = e_d('e', $_POST["username"]);
 $pass = e_d('e', $_POST["password"]);
 $token = $_POST["token"];

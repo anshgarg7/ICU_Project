@@ -47,7 +47,7 @@
         $("#department_c").change(function() {
             var departmentID = $("#department_c").val();
             $.ajax({
-                url: 'assets/worldData.php',
+                url: '../assets/worldData.php',
                 method: 'post',
                 data: 'department=' + departmentID
             }).done(function(departments) {

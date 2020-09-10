@@ -1,5 +1,5 @@
 <?php
-	include "../assets/fxn.php";
+	include "../../assets/fxn.php";
 	$user = e_d('e',$_POST["username"]);
 	$pass = e_d('e',$_POST["password"]);
 	//$temp_login = $con->query("SELECT doctors.`id` AS id,doctoken.`id` AS tid,`hospitalID`,`qualificationID`,`departmentID`, `fullName`, `phoneNumber`, `emailAddress` FROM `doctors`,`doctoken` WHERE `username`='$user' OR `email`='$user'  AND `password`='$pass' AND doctors.`enabled`=1 AND doctoken.`enabled` = 1 AND doctoken.`token` = '$token' AND doctors.`tokenID` = doctoken.`id` AND doctors.`id` = doctoken.`doctorID`");

@@ -54,7 +54,7 @@ $(document).ready(function(){
     $("#Country_c").change(function(){
       var CountryID = $("#Country_c").val();
       $.ajax({
-        url: 'assets/updateworld.php',
+        url: '../assets/updateworld.php',
         method: 'post',
         data: 'Country='+CountryID
       }).done(function(countries){
@@ -70,7 +70,7 @@ $(document).ready(function(){
     $("#State_c").change(function(){
       var StateID = $("#State_c").val();
       $.ajax({
-        url: 'assets/updateworld.php',
+        url: '../assets/updateworld.php',
         method: 'post',
         data: 'State='+StateID
       }).done(function(states){

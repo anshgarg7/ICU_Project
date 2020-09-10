@@ -50,7 +50,7 @@ include "dash_common.php";
         $("#room_c").change(function() {
             var roomID = $("#room_c").val();
             $.ajax({
-                url: 'assets/worldData.php',
+                url: '../assets/worldData.php',
                 method: 'post',
                 data: 'room=' + roomID
             }).done(function(rooms) {

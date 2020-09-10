@@ -1,5 +1,5 @@
 <?php
-include "../assets/fxn.php";
+include "../../assets/fxn.php";
 $id = e_d('d', $_GET['id']);
 $res = doThis("UPDATE `ipdappointment` SET `enabled` = '-1' where `id` = '$id'");
 if ($res) {

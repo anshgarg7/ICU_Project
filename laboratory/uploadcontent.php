@@ -1,5 +1,5 @@
 <?php
-// include "assets/fxn.php";
+// include "../assets/fxn.php";
 include "dash_common.php";
 $reportId = e_d('d',$_GET['id']);
  ?>
@@ -38,7 +38,7 @@ $reportId = e_d('d',$_GET['id']);
 																											</div>
 																										</div>
                                                 <input type="hidden" name="reportId" value="<?php echo $reportId; ?>">
-                                               
+
 
 
 																								</div>
@@ -52,7 +52,7 @@ $reportId = e_d('d',$_GET['id']);
 
 																	</div>
 																</div>
-<script type="text/javascript" src="assets/scripts/main.js"></script></body>
+<script type="text/javascript" src="../assets/scripts/main.js"></script></body>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->

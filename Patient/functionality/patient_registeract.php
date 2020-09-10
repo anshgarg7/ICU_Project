@@ -1,6 +1,6 @@
 <?php
 
-include "../assets/fxn.php";
+include "../../assets/fxn.php";
 
 
 $name = e_d('e',$_POST['name']);

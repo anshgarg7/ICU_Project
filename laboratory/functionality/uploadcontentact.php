@@ -1,5 +1,5 @@
 <?php
-include "../assets/fxn.php";
+include "../../assets/fxn.php";
 
 $reportId = $_POST['reportId'];
 $testName = $_POST['testName'];

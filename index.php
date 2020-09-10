@@ -6,8 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Sehat</title>
-    <?php require "assets/links.php" ?>
- 
+
 </head>
 
 <body>
@@ -41,7 +40,7 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="blog.php">Blog</a>
-                                   
+
 
                                     <li class="nav-item">
                                         <a class="nav-link" href="#contact">Contact</a>
@@ -66,12 +65,12 @@
                         <div class="banner_text_iner">
                             <h1>Bringing the future
                                 of healthcare</h1>
-                            <p>Shifting whole medical industry to online mode to keep pace with 
-                            the growing Digital India. Take an appointment, go to your Doctor, have 
-                            medicines prescribed and then purchase the medicines, all without any piece of 
+                            <p>Shifting whole medical industry to online mode to keep pace with
+                            the growing Digital India. Take an appointment, go to your Doctor, have
+                            medicines prescribed and then purchase the medicines, all without any piece of
                             paper. Just a click on this website. </p>
                             <a href="Patient/index.php" class="btn_2">User's Portal</a>
-                    
+
                         </div>
                     </div>
                 </div>
@@ -92,7 +91,7 @@
                             set doesn't can't subdue air herb lesser dominion saying fruitful given
                             fifth winged Third beast two she'd multiply they're form he above their
                             Replenish days said set doesn can'which.</p>
-                       
+
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-8">
@@ -109,7 +108,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -126,7 +125,7 @@
                         <h2>We Prioritize Your
                             Health States In Order
                             To Top Service</h2>
-                        <p>All the hospitals associated with us have a 24*7 available 
+                        <p>All the hospitals associated with us have a 24*7 available
                         emergency treatment unit, just a call away.</p>
                         <h2>+91-9999888874</h2>
                     </div>
@@ -154,9 +153,9 @@
                         <h2>Our Patients
                             Are at the Centre of
                             Everything We Do</h2>
-                        <p>Each and every feature is implemented with utmost care and after proper 
-                        research and spending hours figuring out what is best for our Doctors and 
-                        the patients. Getting medicines prescribed, Taking an appointment, Purchasing the medicines from 
+                        <p>Each and every feature is implemented with utmost care and after proper
+                        research and spending hours figuring out what is best for our Doctors and
+                        the patients. Getting medicines prescribed, Taking an appointment, Purchasing the medicines from
                         your favorite pharmacist, WE GOT YOU COVERED!</p>
                         <ul>
                             <li><span class="ti-mouse"></span>Modern Technology</li>
@@ -172,11 +171,11 @@
     <!-- our_ability part end-->
 
      <!-- commented this because unable to figure out what to write here. -->
-    
+
 <br><br>
 
     <!--::regervation_part start::-->
-  
+
     <!--::regervation_part end::-->
 
     <!--::doctor_part start::-->
@@ -195,7 +194,7 @@
                     <div class="single_blog_item">
                         <div class="single_blog_img">
                             <img src="assets/img/doctor/doctor_1.png" alt="doctor">
-                            
+
                         </div>
                         <div class="single_text">
                             <div class="single_blog_text">
@@ -205,7 +204,7 @@
                         </div>
                     </div>
                 </div>
-                
+
     </section>
     <!--::doctor_part end::-->
     <!-- developer contact part starts -->

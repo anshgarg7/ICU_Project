@@ -1,5 +1,5 @@
 <?php
-	include "../assets/fxn.php";
+	include "../../assets/fxn.php";
 	$user = e_d('e',$_POST["username"]);
 	$pass = e_d('e',$_POST["password"]);
 	$login = getThis("SELECT `id` AS id, `pharmacyName`, `phoneNumber`, `emailAddress` FROM `pharmacies` WHERE `username`='$user' AND `password`='$pass' AND `enabled`=1");

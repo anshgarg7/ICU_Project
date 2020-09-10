@@ -1,5 +1,5 @@
 <?php
-	include "../assets/fxn.php";
+	include "../../assets/fxn.php";
 	$user = e_d('e',$_POST["username"]);
 	$pass = e_d('e',$_POST["password"]);
 	$login = getThis("SELECT `id` AS id, `laboratoryName`, `phoneNumber`, `emailAddress`,`hospitalId` FROM `laboratories` WHERE `username`='$user' AND `password`='$pass' AND `enabled`=1");
@@ -14,7 +14,7 @@
 		$_SESSION["emailAddress"]=$login["emailAddress"];
 		$_SESSION["phoneNumber"]=$login["phoneNumber"];
 		$_SESSION["hospitalId"] = $login["hospitalId"];
-		
+
 		doThis("UPDATE `laboratories` SET `lastLogin`=CURRENT_TIMESTAMP() WHERE `id` = '$id'");
 		?>
     <script type="text/javascript">

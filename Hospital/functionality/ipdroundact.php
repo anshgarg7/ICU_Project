@@ -1,4 +1,4 @@
-<?php include "../assets/fxn.php";
+<?php include "../../assets/fxn.php";
 
 if (isset($_POST['submit'])) {
     $hospitalId = $_SESSION["UID"];

@@ -1,5 +1,5 @@
 <?php
-include "assets/fxn.php";
+include "../assets/fxn.php";
 
 $id = $_SESSION["UID"];
 $name = e_d('d',$_SESSION["fullName"]);
@@ -22,15 +22,15 @@ $phone = e_d('d',$_SESSION["phoneNumber"]);
     <meta name="description" content="This is an example dashboard created using build-in elements and components.">
     <meta name="msapplication-tap-highlight" content="no">
 
-		<!-- <link rel="icon" type="image/png" href="assets/images/favicon.png"/> -->
+		<!-- <link rel="icon" type="image/png" href="../assets/images/favicon.png"/> -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 		    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 				<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-<script type="text/javascript" src="assets/scripts/main.js"></script></body>
-<link href="assets/main.css" rel="stylesheet"></head>
+<script type="text/javascript" src="../assets/scripts/main.js"></script></body>
+<link href="../assets/main.css" rel="stylesheet"></head>
 <body>
 <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
         <div class="app-header header-shadow">
@@ -69,7 +69,7 @@ $phone = e_d('d',$_SESSION["phoneNumber"]);
                             <div class="widget-content-wrapper">
                                 <div class="widget-content-left">
                                     <div class="btn-group">
-																			<img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt="">
+																			<img width="42" class="rounded-circle" src="../assets/images/avatars/1.jpg" alt="">
                                     </div>
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
