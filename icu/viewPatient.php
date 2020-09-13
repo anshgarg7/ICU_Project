@@ -1,6 +1,8 @@
 <?php include "dash_common.php";
 $ipdId =  $_GET["id"];
 $ipdId = e_d('d', $ipdId);
+$result = getThis("SELECT ipdlog.`id`, ipdlog.`patientId`, ipdlog.`bedId`, ipdlog.`roomID`, ipdlog.`audioNoteID`, ipdlog.`entryTime`, ipdlog.`enabled`, patients.`id`, patients.`fullName`, patients.`phoneNumber`, patients.`emailAddress`, patients.`previousMedication`, patients.`previousDiseases`, patients.`familyHistory`, patients.`allergicReactions`, patients.`foodHabits`, patients.`enabled` FROM `ipdlog`,`patients` WHERE ipdlog.`id`='$ipdId' AND patients.`id`=ipdlog.`patientId`");
+$result = $result[0];
 ?>
 
 <div class="app-main__outer">
@@ -17,7 +19,7 @@ $ipdId = e_d('d', $ipdId);
             </div>
         </div>
 
-
+        <div class="row">
         <div class="col-md-12">
             <div class="main-card mb-3 card" style="overflow-x:scroll;">
                 <div class="card-body">
@@ -26,25 +28,27 @@ $ipdId = e_d('d', $ipdId);
                         <tbody>
                             <tr>
                                 <td>
-                                    Name
+                                  Patient Name
                                 </td>
                                 <td>
-                                    test
+                                    <?php echo e_d('d',$result['fullName']); ?>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    Phone
+                                    Phone Number
                                 </td>
                                 <td>
-                                    test
+                                    <?php echo e_d('d',$result['phoneNumber']); ?>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    Address
+                                    Email Address
                                 </td>
-                                <td>test</td>
+                                <td>
+                                  <?php echo e_d('d',$result['emailAddress']); ?>
+                                </td>
                             </tr>
                             <tr>
                                 <td>
@@ -59,7 +63,14 @@ $ipdId = e_d('d', $ipdId);
                                     Allergies
                                 </td>
                                 <td>
-                                    test, test
+                                    <?php
+                                    $allergies = e_d('d',$result['allergicReactions']);
+                                    $allergies = unserialize($allergies);
+                                    for ($i=0; $i < sizeof($allergies); $i++) {
+                                      echo $allergies[$i];
+                                      echo "</br>";
+                                    }
+                                     ?>
                                 </td>
                             </tr>
                             <tr>
@@ -67,7 +78,14 @@ $ipdId = e_d('d', $ipdId);
                                     Previous Medication
                                 </td>
                                 <td>
-                                    test, test, test
+                                  <?php
+                                  $previousMedication = e_d('d',$result['previousMedication']);
+                                  $previousMedication = unserialize($previousMedication);
+                                  for ($i=0; $i < sizeof($previousMedication); $i++) {
+                                    echo $previousMedication[$i];
+                                    echo "</br>";
+                                  }
+                                   ?>
                                 </td>
                             </tr>
                             <tr>
@@ -75,7 +93,7 @@ $ipdId = e_d('d', $ipdId);
                                     Family History
                                 </td>
                                 <td>
-                                    Nothing
+                                  <?php echo e_d('d',$result['familyHistory']); ?>
                                 </td>
                             </tr>
                             <tr>
@@ -83,7 +101,14 @@ $ipdId = e_d('d', $ipdId);
                                     Previous Diseases
                                 </td>
                                 <td>
-                                    test,test
+                                  <?php
+                                  $previousDiseases = e_d('d',$result['previousDiseases']);
+                                  $previousDiseases = unserialize($previousDiseases);
+                                  for ($i=0; $i < sizeof($previousDiseases); $i++) {
+                                    echo $previousDiseases[$i];
+                                    echo "</br>";
+                                  }
+                                   ?>
                                 </td>
                             </tr>
                         </tbody>
@@ -91,5 +116,20 @@ $ipdId = e_d('d', $ipdId);
                 </div>
             </div>
         </div>
+        <div class="col-md-6">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                  <a class="mb-2 mr-2 btn btn-success btn-lg btn-block" href="#">Prescription Records</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                  <a class="mb-2 mr-2 btn btn-success btn-lg btn-block" href="#">Vitals Records</a>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
 </div>
