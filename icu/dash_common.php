@@ -146,7 +146,7 @@ $hospital = $hospital[0];
                             </li>
                             <li class="app-sidebar__heading">Options</li>
                             <li>
-                                <a href="queue.php">
+                                <a href="admit_patient.php">
                                     <i class="metismenu-icon pe-7s-diamond"></i>
                                     Admit Patient
                                 </a>
