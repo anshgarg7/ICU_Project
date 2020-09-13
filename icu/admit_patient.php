@@ -163,14 +163,14 @@ if (isset($_POST["submitCheck"])) {
                   <?php
                   if ($flag == 1) {
                   ?>
-                    <table class="table ">
+                    <table class="table" id="dynamic_field1">
                       <?php
                       $previousMedication = e_d('d', $check['previousMedication']);
                       $previousMedication = unserialize($previousMedication);
-                      $x = 0;
-                      for (; $x < sizeof($previousMedication); $x++) {
+
+                      for ($x = 0; $x < sizeof($previousMedication); $x++) {
                       ?>
-                        <tr id="row1test<?php echo $x + 1; ?>">
+                        <tr>
                           <td><input type="text" name="previousMedication[]" value="<?php echo $previousMedication[$x]; ?>" class="form-control name_list" /></td>
                           <td><button type="button" name="remove" id="<?php echo ($x + 1); ?>" class="btn btn-danger btn_remove">X</button></td>
                         </tr>
@@ -191,20 +191,13 @@ if (isset($_POST["submitCheck"])) {
                   </table>
                 </div>
               </div>
-
-
-
-
-
-
-
               <div class="col-md-12">
                 <b>Previous Diseases</b>
                 <div class="table-responsive">
                   <?php
                   if ($flag == 1) {
                   ?>
-                    <table class="table ">
+                    <table class="table" id="dynamic_field2">
                       <?php
                       $previousDiseases = e_d('d', $check['previousDiseases']);
                       $previousDiseases = unserialize($previousDiseases);
@@ -244,7 +237,7 @@ if (isset($_POST["submitCheck"])) {
                   <?php
                   if ($flag == 1) {
                   ?>
-                    <table class="table ">
+                    <table class="table" id="dynamic_field3">
                       <?php
                       $allergicReactions = e_d('d', $check['allergicReactions']);
                       $allergicReactions = unserialize($allergicReactions);
@@ -262,9 +255,9 @@ if (isset($_POST["submitCheck"])) {
                   <?php
                   }
                   ?>
-                  <table class="table " id="dynamic_field4">
+                  <table class="table " id="dynamic_field3">
                     <tr>
-                      <td><input type="text" name="vitals[]" placeholder="Enter Body Vitals" class="form-control name_list" /></td>
+                      <td><input type="text" name="allergicReactions[]" placeholder="Enter Body Vitals" class="form-control name_list" /></td>
                       <td><button type="button" name="add4" id="add4" class="mt-2 btn btn-primary">Add More</button></td>
                     </tr>
                   </table>
