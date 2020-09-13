@@ -76,7 +76,7 @@ $patients = getThis("SELECT `id`, `patientID`, `doctorID`, `bedID` from `ipdlog`
                                             ?>
                                         </td>
                                         <td>
-                                            <a href="test.php?id=<?php echo e_d('e', $patients[$i]['id']); ?>" class="btn btn-block btn-primary">View Details</a>
+                                            <a href="viewPatient.php?id=<?php echo e_d('e', $patients[$i]['id']); ?>" class="btn btn-block btn-primary">View Details</a>
                                         </td>
                                     </tr>
 
