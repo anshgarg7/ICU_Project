@@ -1,0 +1,21 @@
+#############################################################################
+### Health Card                                                           ###
+###                                                                       ###
+###    _______________________________________________________________    ###
+###   | ID  | Date of Starting  | Full Name        | Roll             |   ###
+###   |=====|===================|==================|==================|   ###
+###   |  1  | September 13, 2020| Ansh Garg        | Developer        |   ###
+###   |  2  | September 13, 2020| Tarun Dixit      | Developer        |   ###
+###   |__3__|_September 13, 2020|__________________|__________________|   ###
+###                                                                       ###
+#############################################################################
+###                                                                       ###
+###   Please follow the following method for logging the db changes       ###
+###     ### Date -> (Developer ID)                                        ###
+###       ### Comments for performed changes (if any)                     ###
+###                                                                       ###
+#############################################################################
+#############################################################################
+
+### September 13,2020 -> (1)
+CREATE TABLE `audionotes` ( `id` INT NOT NULL AUTO_INCREMENT , `hospitalID` INT NOT NULL , `doctorID` INT NOT NULL , `patientID` INT NOT NULL , `ipdID` INT NOT NULL , `audioNoteLink` TEXT NOT NULL , `generatedAt` TIMESTAMP NOT NULL , `enabled` INT(1) NOT NULL DEFAULT '1' , PRIMARY KEY (`id`)) ENGINE = InnoDB;
