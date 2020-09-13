@@ -8,14 +8,13 @@ if (isset($_SESSION["UID"]) == null) {
 <?php
 }
 $id = $_SESSION["UID"];
-$name = e_d('d', $_SESSION["fullName"]);
-$email = e_d('d', $_SESSION["emailAddress"]);
-$phone = e_d('d', $_SESSION["phoneNumber"]);
-$departmentID = $_SESSION["departmentID"];
-$qualificationID = $_SESSION["qualificationID"];
-$hospitalID = $_SESSION["hospitalID"];
+$roomName = e_d('d', $_SESSION["roomName"]);
+$roomDescription = e_d('d', $_SESSION["roomDescription"]);
+$roomLocation = e_d('d', $_SESSION["roomLocation"]);
+$totalBeds = $_SESSION["totalBeds"];
+$hospitalId = $_SESSION["hospitalId"];
 
-$hospital = getThis("SELECT `hospitalName` FROM `hospitals` WHERE `id`='$hospitalID'");
+$hospital = getThis("SELECT `hospitalName` FROM `hospitals` WHERE `id`='$hospitalId'");
 $hospital = $hospital[0];
 
 ?>
@@ -85,7 +84,7 @@ $hospital = $hospital[0];
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
-                                        <?php echo $name; ?>
+                                        <?php echo $roomName; ?>
                                     </div>
                                     <div class="widget-subheading">
                                         <?php echo e_d('d', $hospital['hospitalName']); ?>
@@ -142,34 +141,18 @@ $hospital = $hospital[0];
                             <li>
                                 <a href="dashboard.php" class="mm-active">
                                     <i class="metismenu-icon pe-7s-rocket"></i>
-                                    Doctor's Dashboard
+                                    ICU Dashboard
                                 </a>
                             </li>
                             <li class="app-sidebar__heading">Options</li>
                             <li>
                                 <a href="queue.php">
                                     <i class="metismenu-icon pe-7s-diamond"></i>
-                                    Appointment Schedule
+                                    Admit Patient
                                 </a>
                                 <a href="ipdschedule.php">
                                     <i class="metismenu-icon pe-7s-diamond"></i>
-                                    IPD Date Changes
-                                </a>
-                                <a href="attendance.php">
-                                    <i class="metismenu-icon pe-7s-diamond"></i>
-                                    My Attendance
-                                </a>
-                                <a href="leave_apply.php">
-                                    <i class="metismenu-icon pe-7s-diamond"></i>
-                                    Apply For Leave
-                                </a>
-                                <a href="leave_status.php">
-                                    <i class="metismenu-icon pe-7s-diamond"></i>
-                                    Check Leave Status
-                                </a>
-                                <a href="discussion.php">
-                                    <i class="metismenu-icon pe-7s-diamond"></i>
-                                    Discussion Panel
+                                    Previous Patient Records
                                 </a>
                             </li>
                     </div>
