@@ -121,7 +121,18 @@ if (isset($_POST["submitCheck"])) {
                   <div class="table-responsive">
                     <table class="table " id="dynamic_field">
                       <tr>
-                        <td><input type="email" name="addressLine1" placeholder="Address Line 1" <?php if ($flag == 1) { ?> value="<?php echo e_d('d', $check['addressLine1']); ?> " <?php } ?> class="form-control name_list" /></td>
+                        <td><input type="text" name="addressLine1" placeholder="Address Line 1" <?php if ($flag == 1) { ?> value="<?php echo e_d('d', $check['addressLine1']); ?> " <?php } ?> class="form-control name_list" /></td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <b>Emergency Contact</b>
+                  <div class="table-responsive">
+                    <table class="table " id="dynamic_field">
+                      <tr>
+                        <td><input type="text" name="addressLine1" placeholder="Address Line 1" <?php if ($flag == 1) { ?> value="<?php echo e_d('d', "RkVSS0RaN0hiL3ROQjRBSkZYUmFLN3poZmg1dU1pYTMzbkpYQWJMajZHZz0="); ?> " <?php } ?> class="form-control name_list" /></td>
                       </tr>
                     </table>
                   </div>
@@ -161,6 +172,7 @@ if (isset($_POST["submitCheck"])) {
                 <div class="table-responsive">
 
                   <?php
+                  $x = 0;
                   if ($flag == 1) {
                   ?>
                     <table class="table" id="dynamic_field1">
@@ -168,11 +180,11 @@ if (isset($_POST["submitCheck"])) {
                       $previousMedication = e_d('d', $check['previousMedication']);
                       $previousMedication = unserialize($previousMedication);
 
-                      for ($x = 0; $x < sizeof($previousMedication); $x++) {
+                      for (; $x < sizeof($previousMedication); $x++) {
                       ?>
-                        <tr>
+                        <tr id="rowrm1<?php echo $x + 1; ?>">
                           <td><input type="text" name="previousMedication[]" value="<?php echo $previousMedication[$x]; ?>" class="form-control name_list" /></td>
-                          <td><button type="button" name="remove" id="<?php echo ($x + 1); ?>" class="btn btn-danger btn_remove">X</button></td>
+                          <td><button type="button" name="remove" id="rm1<?php echo ($x + 1); ?>" class="btn btn-danger btn_remove">X</button></td>
                         </tr>
                       <?php
 
@@ -185,28 +197,34 @@ if (isset($_POST["submitCheck"])) {
 
                   <table class="table " id="dynamic_field1">
                     <tr>
-                      <td><input type="text" name="vitals[]" placeholder="Enter Previous Medication" class="form-control name_list" /></td>
+                      <td><input type="text" name="previousMedication[]" placeholder="Enter Previous Medication" class="form-control name_list" /></td>
                       <td><button type="button" name="add1" id="add1" class="mt-2 btn btn-primary">Add More</button></td>
                     </tr>
                   </table>
                 </div>
               </div>
+
+
+
+
+
               <div class="col-md-12">
                 <b>Previous Diseases</b>
                 <div class="table-responsive">
                   <?php
+                  $y = 0;
                   if ($flag == 1) {
                   ?>
                     <table class="table" id="dynamic_field2">
                       <?php
                       $previousDiseases = e_d('d', $check['previousDiseases']);
                       $previousDiseases = unserialize($previousDiseases);
-                      $y = 0;
+
                       for (; $y < sizeof($previousDiseases); $y++) {
                       ?>
-                        <tr id="row2<?php echo $y + 1; ?>">
+                        <tr id="rowrm2<?php echo $y + 1; ?>">
                           <td><input type="text" name="$previousDiseases[]" value="<?php echo $previousDiseases[$y]; ?>" class="form-control name_list" /></td>
-                          <td><button type="button" name="remove" id="<?php echo $y + 1; ?>" class="btn btn-danger btn_remove">X</button></td>
+                          <td><button type="button" name="remove" id="rm2<?php echo $y + 1; ?>" class="btn btn-danger btn_remove">X</button></td>
                         </tr>
                       <?php
 
@@ -235,17 +253,18 @@ if (isset($_POST["submitCheck"])) {
                 <b>Allergies</b>
                 <div class="table-responsive">
                   <?php
+                  $z = 0;
                   if ($flag == 1) {
                   ?>
                     <table class="table" id="dynamic_field3">
                       <?php
                       $allergicReactions = e_d('d', $check['allergicReactions']);
                       $allergicReactions = unserialize($allergicReactions);
-                      for ($x = 0; $x < sizeof($allergicReactions); $x++) {
+                      for (; $z < sizeof($allergicReactions); $z++) {
                       ?>
-                        <tr id="row<?php echo $x + 1; ?>">
-                          <td><input type="text" name="allergicReactions[]" value="<?php echo $allergicReactions[$x]; ?>" class="form-control name_list" /></td>
-                          <td><button type="button" name="remove" id="<?php echo $x + 1; ?>" class="btn btn-danger btn_remove">X</button></td>
+                        <tr id="rowrm3<?php echo $z + 1; ?>">
+                          <td><input type="text" name="allergicReactions[]" value="<?php echo $allergicReactions[$z]; ?>" class="form-control name_list" /></td>
+                          <td><button type="button" name="remove" id="rm3<?php echo $z + 1; ?>" class="btn btn-danger btn_remove">X</button></td>
                         </tr>
                       <?php
 
@@ -258,7 +277,7 @@ if (isset($_POST["submitCheck"])) {
                   <table class="table " id="dynamic_field3">
                     <tr>
                       <td><input type="text" name="allergicReactions[]" placeholder="Enter Body Vitals" class="form-control name_list" /></td>
-                      <td><button type="button" name="add4" id="add4" class="mt-2 btn btn-primary">Add More</button></td>
+                      <td><button type="button" name="add3" id="add3" class="mt-2 btn btn-primary">Add More</button></td>
                     </tr>
                   </table>
                 </div>
@@ -280,17 +299,18 @@ if (isset($_POST["submitCheck"])) {
                 <div class="table-responsive">
 
                   <?php
+                  $p = 0;
                   if ($flag == 1) {
                   ?>
                     <table class="table ">
                       <?php
                       $foodHabits = e_d('d', $check['foodHabits']);
                       $foodHabits = unserialize($foodHabits);
-                      for ($x = 0; $x < sizeof($foodHabits); $x++) {
+                      for (; $p < sizeof($foodHabits); $p++) {
                       ?>
-                        <tr id="row<?php echo $x + 1; ?>">
-                          <td><input type="text" name="foodHabits[]" value="<?php echo $foodHabits[$x]; ?>" class="form-control name_list" /></td>
-                          <td><button type="button" name="remove" id="<?php echo $x + 1; ?>" class="btn btn-danger btn_remove">X</button></td>
+                        <tr id="rowrm4<?php echo $p + 1; ?>">
+                          <td><input type="text" name="foodHabits[]" value="<?php echo $foodHabits[$p]; ?>" class="form-control name_list" /></td>
+                          <td><button type="button" name="remove" id="rm4<?php echo $p + 1; ?>" class="btn btn-danger btn_remove">X</button></td>
                         </tr>
                       <?php
 
@@ -331,12 +351,12 @@ if (isset($_POST["submitCheck"])) {
     var i = <?php echo $x; ?>;
     $('#add1').click(function() {
       i++;
-      $('#dynamic_field1').append('<tr id="row1test' + i + '"><td><input type="text" name="vitals[]" placeholder="Enter Previous Medication" class="form-control name_list" /></td><td><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn_remove">X</button></td></tr>');
+      $('#dynamic_field1').append('<tr id="rowrm1' + i + '"><td><input type="text" name="vitals[]" placeholder="Enter Previous Medication" class="form-control name_list" /></td><td><button type="button" name="remove" id="rm1' + i + '" class="btn btn-danger btn_remove">X</button></td></tr>');
     });
 
     $(document).on('click', '.btn_remove', function() {
       var button_id = $(this).attr("id");
-      $('#row1test' + button_id + '').remove();
+      $('#row' + button_id + '').remove();
     });
   });
 </script>
@@ -345,12 +365,41 @@ if (isset($_POST["submitCheck"])) {
     var j = <?php echo $y; ?>;
     $('#add2').click(function() {
       j++;
-      $('#dynamic_field2').append('<tr id="row2' + j + '"><td><input type="text" name="previousMedication[]" placeholder="Enter Previous Diseases" class="form-control name_list" /></td><td><button type="button" name="remove" id="' + j + '" class="btn btn-danger btn_remove">X</button></td></tr>');
+      $('#dynamic_field2').append('<tr id="rowrm2' + j + '"><td><input type="text" name="previousMedication[]" placeholder="Enter Previous Diseases" class="form-control name_list" /></td><td><button type="button" name="remove" id="rm2' + j + '" class="btn btn-danger btn_remove">X</button></td></tr>');
     });
 
     $(document).on('click', '.btn_remove', function() {
       var button_id = $(this).attr("id");
-      $('#row2' + button_id + '').remove();
+      $('#row' + button_id + '').remove();
+    });
+  });
+</script>
+<script>
+  $(document).ready(function() {
+    var k = <?php echo $z; ?>;
+    $('#add3').click(function() {
+      k++;
+      $('#dynamic_field3').append('<tr id="rowrm3' + k + '"><td><input type="text" name="allergicReactions[]" class="form-control name_list" /></td><td><button type = "button" name = "remove" id = "rm3' + k + '" class = "btn btn-danger btn_remove"> X </button></td></tr>');
+    });
+
+    $(document).on('click', '.btn_remove', function() {
+      var button_id = $(this).attr("id");
+      $('#row' + button_id + '').remove();
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function() {
+    var l = <?php echo $p; ?>;
+    $('#add4').click(function() {
+      l++;
+      $('#dynamic_field4').append('<tr id="rowrm4' + l + '"><td><input type="text" name="allergicReactions[]" class="form-control name_list" /></td><td><button type = "button" name = "remove" id = "rm4' + l + '" class = "btn btn-danger btn_remove"> X </button></td></tr>');
+    });
+
+    $(document).on('click', '.btn_remove', function() {
+      var button_id = $(this).attr("id");
+      $('#row' + button_id + '').remove();
     });
   });
 </script>
