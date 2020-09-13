@@ -1,35 +1,5 @@
 <?php
-include "../assets/fxn.php";
-if (isset($_SESSION["UID"]) == null) {
-?>
-    <script type="text/javascript">
-        window.location = 'logout.php';
-    </script>
-<?php
-}
-$id = $_SESSION["UID"];
-$name = e_d('d', $_SESSION["fullName"]);
-$email = e_d('d', $_SESSION["emailAddress"]);
-$phone = e_d('d', $_SESSION["phoneNumber"]);
-$departmentID = $_SESSION["departmentID"];
-$qualificationID = $_SESSION["qualificationID"];
-$hospitalID = $_SESSION["hospitalID"];
-$pid = $_SESSION["patientIDforDoctor"];
-$token = $_SESSION['patienttoken'];
-$patientID = e_d('d', $_SESSION["patientIDforDoctor"]);
-$details = getThis("SELECT  `fullName`, `phoneNumber`, `emailAddress`,`previousMedication`, `previousDiseases` FROM `patients` WHERE `id` = '$patientID'");
-$details = $details[0];
-$selectedData = getThis("SELECT `prescriptionView`, `laboratoryReportsView` FROM `patienttoken` WHERE `token`='$token'");
-$selectedData = $selectedData[0];
-$prescriptionSelected = e_d('d', $selectedData['prescriptionView']);
-$prescriptionSelected = unserialize($prescriptionSelected);
-$reportsSelected = e_d('d', $selectedData['laboratoryReportsView']);
-$reportsSelected = unserialize($reportsSelected);
-$previousprescriptions = getThis("SELECT `id`,`symptoms`,`medicinePrescribed`, `generatedAt`, `updatedAt` FROM `prescription` WHERE `patientID`='$patientID' AND `doctorID`='$id' ORDER BY `generatedAt` DESC");
-$hospital = getThis("SELECT `hospitalName` FROM `hospitals` WHERE `id`='$hospitalID'");
-$hospital = $hospital[0];
-
-include "patient_dash_common.php";
+include "dash_common.php";
 ?>
 
 <!-- form area starts -->
@@ -39,41 +9,237 @@ include "patient_dash_common.php";
             <div class="page-title-wrapper">
                 <div class="page-title-heading">
 
-                    <div><?php echo $name; ?>'s Dashboard
-                        <div class="page-title-subheading">Welcome to Your DashBoard!!
+                    <div>Admit Patient
+                        <div class="page-title-subheading"><?php echo $roomDescription; ?>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <form action="functionality/book_room.php" method="post">
-            <div class="wrap-input100">
-                <div class="position-relative form-group"><label for="exampleCity" class=""><span class="label-input100">
-                            <h5>Room</h5>
-                        </span></label><select class="form-control" name="room" id="room_c" required>
-                        <option selected disabled>Select Room For Patient</option>
-                        <?php $rooms = getThis("SELECT `id`, `roomName`,`roomDescription` FROM `rooms` WHERE `hospitalId` = '$hospitalID'") ?>
-                        <?php foreach ($rooms as $k => $c) { ?>
-                            <option value="<?php echo $c['id']; ?>"><?php echo e_d('d', $c['roomName']) . "-> " . e_d('d', $c['roomDescription']); ?></option>
-                        <?php } ?>
-                    </select></div>
-                <div class="wrap-input100">
-                    <div class="position-relative form-group"><label for="exampleState" class=""><span class="label-input100">
-                                <h5>Bed For the Patient</h5>
-                            </span></label><select class="form-control" name="bed" id="bed_c" required>
-                            <option disabled selected>Select Room First</option>
-                        </select></div>
-                </div>
-                <button class="mb-2 mr-2 btn btn-primary btn-lg btn-block" type="submit" name="submit">Book</button>
-            </div>
+        <div class="row">
+          <div class="col-md-12">
+    				<div class="main-card mb-3 card">
+    					<div class="card-body">
+    						<h5 class="card-title">Admission Form</h5>
+    						<form action="functionality/prescription_act.php" method="POST">
+                  <div class="row">
 
-        </form>
+                    <div class="col-md-6">
+                      <b>Patient Name</b>
+                      <div class="table-responsive">
+                      <table class="table " id="dynamic_field">
+      									<tr>
+      										<td><input type="text" name="patientName" placeholder="Enter Patient Name" class="form-control name_list" /></td>
+      									</tr>
+      								</table>
+                    </div>
+    							</div>
+                  <div class="col-md-6">
+                    <b>Phone Number</b>
+                    <div class="table-responsive">
+                    <table class="table " id="dynamic_field">
+                      <tr>
+                        <td><input type="text" name="phoneNumber" placeholder="Enter Patient Phone Number" class="form-control name_list" /></td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <b>Email Address</b>
+                  <div class="table-responsive">
+                  <table class="table " id="dynamic_field">
+                    <tr>
+                      <td><input type="email" name="emailAddress" placeholder="Enter Patient Email Address" class="form-control name_list" /></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <b>House Address</b>
+                <div class="table-responsive">
+                <table class="table " id="dynamic_field">
+                  <tr>
+                    <td><input type="email" name="addressLine1" placeholder="Address Line 1" class="form-control name_list" /></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <b>House Address</b>
+              <div class="table-responsive">
+              <table class="table " id="dynamic_field">
+                <tr>
+                  <td><input type="email" name="addressLine1" placeholder="Address Line 1" class="form-control name_list" /></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <b>House Address</b>
+            <div class="table-responsive">
+            <table class="table " id="dynamic_field">
+              <tr>
+                <td><input type="email" name="addressLine1" placeholder="Address Line 1" class="form-control name_list" /></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <b>House Address</b>
+          <div class="table-responsive">
+          <table class="table " id="dynamic_field">
+            <tr>
+              <td><input type="email" name="addressLine1" placeholder="Address Line 1" class="form-control name_list" /></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <b>Previous Medication</b>
+        <div class="table-responsive">
+          <table class="table " id="dynamic_field4">
+            <tr>
+              <td><input type="text" name="vitals[]" placeholder="Enter Body Vitals" class="form-control name_list" /></td>
+              <td><button type="button" name="add4" id="add4" class="mt-2 btn btn-primary">Add More</button></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <b>Previous Diseases</b>
+        <div class="table-responsive">
+          <table class="table " id="dynamic_field4">
+            <tr>
+              <td><input type="text" name="vitals[]" placeholder="Enter Body Vitals" class="form-control name_list" /></td>
+              <td><button type="button" name="add4" id="add4" class="mt-2 btn btn-primary">Add More</button></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <b>Allergies</b>
+        <div class="table-responsive">
+          <table class="table " id="dynamic_field4">
+            <tr>
+              <td><input type="text" name="vitals[]" placeholder="Enter Body Vitals" class="form-control name_list" /></td>
+              <td><button type="button" name="add4" id="add4" class="mt-2 btn btn-primary">Add More</button></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <b>Family History</b>
+        <div class="table-responsive">
+          <table class="table " id="dynamic_field4">
+            <tr>
+              <td><input type="text" name="vitals[]" placeholder="Enter Body Vitals" class="form-control name_list" /></td>
+              <td><button type="button" name="add4" id="add4" class="mt-2 btn btn-primary">Add More</button></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <b>Food Habits</b>
+        <div class="table-responsive">
+          <table class="table " id="dynamic_field4">
+            <tr>
+              <td><input type="text" name="vitals[]" placeholder="Enter Body Vitals" class="form-control name_list" /></td>
+              <td><button type="button" name="add4" id="add4" class="mt-2 btn btn-primary">Add More</button></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    							<input type="hidden" name="hospitalID" value="<?php echo $hospitalID; ?>">
+    							<input type="hidden" name="doctorID" value="<?php echo $id; ?>">
+    							<input type="hidden" name="patientID" value="<?php echo $patientID; ?>">
+    							<button class="mb-2 mr-2 btn btn-success btn-lg btn-block" name="submit">Submit</button>
+                </div>
+    						</form>
+    					</div>
+    				</div>
+    			</div>
+
+        </div>
     </div>
 </div>
 </body>
 
 </html>
 
+<script>
+$(document).ready(function(){
+	var i=1;
+	$('#add4').click(function(){
+		i++;
+		$('#dynamic_field4').append('<tr id="row'+i+'"><td><input type="text" name="vitals[]" placeholder="Enter Body Vitals" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
+	});
+
+    $(document).on('click', '.btn_remove', function(){
+		var button_id = $(this).attr("id");
+		$('#row'+button_id+'').remove();
+	});
+});
+</script>
+<script>
+$(document).ready(function(){
+	var i=1;
+	$('#add4').click(function(){
+		i++;
+		$('#dynamic_field4').append('<tr id="row'+i+'"><td><input type="text" name="vitals[]" placeholder="Enter Body Vitals" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
+	});
+
+    $(document).on('click', '.btn_remove', function(){
+		var button_id = $(this).attr("id");
+		$('#row'+button_id+'').remove();
+	});
+});
+</script>
+<script>
+$(document).ready(function(){
+	var i=1;
+	$('#add4').click(function(){
+		i++;
+		$('#dynamic_field4').append('<tr id="row'+i+'"><td><input type="text" name="vitals[]" placeholder="Enter Body Vitals" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
+	});
+
+    $(document).on('click', '.btn_remove', function(){
+		var button_id = $(this).attr("id");
+		$('#row'+button_id+'').remove();
+	});
+});
+</script>
+<script>
+$(document).ready(function(){
+	var i=1;
+	$('#add4').click(function(){
+		i++;
+		$('#dynamic_field4').append('<tr id="row'+i+'"><td><input type="text" name="vitals[]" placeholder="Enter Body Vitals" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
+	});
+
+    $(document).on('click', '.btn_remove', function(){
+		var button_id = $(this).attr("id");
+		$('#row'+button_id+'').remove();
+	});
+});
+</script>
+<script>
+$(document).ready(function(){
+	var i=1;
+	$('#add4').click(function(){
+		i++;
+		$('#dynamic_field4').append('<tr id="row'+i+'"><td><input type="text" name="vitals[]" placeholder="Enter Body Vitals" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
+	});
+
+    $(document).on('click', '.btn_remove', function(){
+		var button_id = $(this).attr("id");
+		$('#row'+button_id+'').remove();
+	});
+});
+</script>
 
 <script type="text/javascript">
     $(document).ready(function() {
