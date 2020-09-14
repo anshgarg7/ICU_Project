@@ -1,6 +1,6 @@
 <?php include "dash_common.php"; ?>
 <?php
-$patients = getThis("SELECT `id`, `patientID`, `doctorID`, `bedID`, `entryTime` from `ipdlog` WHERE `roomID`='$id' AND `enabled`= 1");
+$patients = getThis("SELECT `id`, `patientID`, `doctorID`, `bedID`, `doctorRemarks`, `entryTime`, `exitTime` from `ipdlog` WHERE `roomID`='$id' AND `enabled`= 0");
 
 ?>
 <!doctype html>
@@ -26,7 +26,7 @@ $patients = getThis("SELECT `id`, `patientID`, `doctorID`, `bedID`, `entryTime` 
         <?php
         if (sizeof($patients) == 0) {
         ?>
-            <h4>There is no patient in this ICU</h4>
+            <h4>There is no previous patient in this ICU</h4>
         <?php
         } else {
         ?>
@@ -34,31 +34,26 @@ $patients = getThis("SELECT `id`, `patientID`, `doctorID`, `bedID`, `entryTime` 
             <div class="col-md-12">
                 <div class="main-card mb-3 card" style="overflow-x:scroll;">
                     <div class="card-body">
-                        <h5 class="card-title">ICU Details</h5>
+                        <h5 class="card-title">Previous Patients Records</h5>
                         <table class="mb-0 table table-striped">
                             <thead>
                                 <tr>
-                                    <th>Bed Number</th>
+                                    <th>#</th>
                                     <th>Patient Name</th>
                                     <th>Lead Doctor</th>
-                                    <th>Entry Time</th>
+                                    <th>Doctor Remarks</th>
+                                    <th>Entry Date</th>
+                                    <th>Exit Date</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
                                 for ($i = 0; $i < sizeof($patients); $i++) {
-
                                 ?>
                                     <tr>
                                         <td>
-                                            <?php
-                                            $x = $patients[$i]['bedID'];
-                                            $bedNumber = getThis("SELECT `bedNumber` FROM `beds` WHERE `id`='$x' AND `enabled`='1' ");
-                                            $bedName = $bedNumber[0]['bedNumber'];
-                                            echo e_d('d', $bedName);
-                                            ?>
-
+                                          #
                                         </td>
                                         <td>
                                             <?php
@@ -76,7 +71,15 @@ $patients = getThis("SELECT `id`, `patientID`, `doctorID`, `bedID`, `entryTime` 
                                             echo e_d('d', $docName);
                                             ?>
                                         </td>
-                                        <td><?php echo $patients[$i]['entryTime']; ?></td>
+                                        <td>
+                                          <?php echo $patients[$i]['doctorRemarks']; ?>
+                                        </td>
+                                        <td>
+                                          <?php echo $patients[$i]['entryTime']; ?>
+                                        </td>
+                                        <td>
+                                          <?php echo $patients[$i]['exitTime']; ?>
+                                        </td>
                                         <td>
                                             <a href="viewPatient.php?id=<?php echo e_d('e', $patients[$i]['id']); ?>" class="btn btn-block btn-primary">View Details</a>
                                         </td>

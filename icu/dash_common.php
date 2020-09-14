@@ -150,7 +150,7 @@ $hospital = $hospital[0];
                                     <i class="metismenu-icon pe-7s-diamond"></i>
                                     Admit Patient
                                 </a>
-                                <a href="ipdschedule.php">
+                                <a href="previouspatients.php">
                                     <i class="metismenu-icon pe-7s-diamond"></i>
                                     Previous Patient Records
                                 </a>

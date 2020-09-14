@@ -1,7 +1,7 @@
 <?php include "dash_common.php";
 $ipdId =  $_GET["id"];
 $ipdId = e_d('d', $ipdId);
-$result = getThis("SELECT ipdlog.`id`, ipdlog.`patientId`, ipdlog.`bedId`, ipdlog.`roomID`, ipdlog.`entryTime`, ipdlog.`enabled`, patients.`id`, patients.`fullName`, patients.`phoneNumber`, patients.`emailAddress`, patients.`previousMedication`, patients.`previousDiseases`, patients.`familyHistory`, patients.`allergicReactions`, patients.`foodHabits`, patients.`enabled` FROM `ipdlog`,`patients` WHERE ipdlog.`id`='$ipdId' AND patients.`id`=ipdlog.`patientId`");
+$result = getThis("SELECT ipdlog.`id`, ipdlog.`patientId`, ipdlog.`bedId`, ipdlog.`roomID`, ipdlog.`entryTime`, ipdlog.`enabled`, patients.`id`, patients.`fullName`, patients.`phoneNumber`, patients.`emailAddress`, patients.`previousMedication`, patients.`previousDiseases`, patients.`familyHistory`, patients.`allergicReactions`, patients.`foodHabits`, patients.`enabled` FROM `ipdlog`,`patients` WHERE ipdlog.`id`=patients.'$ipdId' AND patients.`id`=ipdlog.`patientId`");
 $result = $result[0];
 ?>
 
