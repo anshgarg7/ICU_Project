@@ -1,7 +1,7 @@
 <?php include "dash_common.php";
 $ipdId =  $_GET["id"];
 $ipdId = e_d('d', $ipdId);
-$result = getThis("SELECT ipdlog.`id`, ipdlog.`patientId`, ipdlog.`bedId`, ipdlog.`roomID`, ipdlog.`audioNoteID`, ipdlog.`entryTime`, ipdlog.`enabled`, patients.`id`, patients.`fullName`, patients.`phoneNumber`, patients.`emailAddress`, patients.`previousMedication`, patients.`previousDiseases`, patients.`familyHistory`, patients.`allergicReactions`, patients.`foodHabits`, patients.`enabled` FROM `ipdlog`,`patients` WHERE ipdlog.`id`='$ipdId' AND patients.`id`=ipdlog.`patientId`");
+$result = getThis("SELECT ipdlog.`id`, ipdlog.`patientId`, ipdlog.`bedId`, ipdlog.`roomID`, ipdlog.`entryTime`, ipdlog.`enabled`, patients.`id`, patients.`fullName`, patients.`phoneNumber`, patients.`emailAddress`, patients.`previousMedication`, patients.`previousDiseases`, patients.`familyHistory`, patients.`allergicReactions`, patients.`foodHabits`, patients.`enabled` FROM `ipdlog`,`patients` WHERE ipdlog.`id`='$ipdId' AND patients.`id`=ipdlog.`patientId`");
 $result = $result[0];
 ?>
 
@@ -119,14 +119,14 @@ $result = $result[0];
         <div class="col-md-6">
             <div class="main-card mb-3 card">
                 <div class="card-body">
-                  <a class="mb-2 mr-2 btn btn-success btn-lg btn-block" href="#">Prescription Records</a>
+                  <a class="mb-2 mr-2 btn btn-success btn-lg btn-block" href="previousprescriptions.php?id=<?php echo e_d('e',$ipdId); ?>">Prescription Records</a>
                 </div>
             </div>
         </div>
         <div class="col-md-6">
             <div class="main-card mb-3 card">
                 <div class="card-body">
-                  <a class="mb-2 mr-2 btn btn-success btn-lg btn-block" href="#">Vitals Records</a>
+                  <a class="mb-2 mr-2 btn btn-success btn-lg btn-block" href="vitalsrecord.php?id=<?php echo e_d('e',$ipdId); ?>">Vitals Records</a>
                 </div>
             </div>
         </div>

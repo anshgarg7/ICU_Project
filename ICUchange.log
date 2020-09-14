@@ -7,7 +7,7 @@
 ###   |  1  | September 13, 2020| Ansh Garg        | Developer        |   ###
 ###   |  2  | September 13, 2020| Tarun Dixit      | Developer        |   ###
 ###   |  3  | September 13, 2020| Uttaran Sarkar   | Developer        |   ###
-###   |  4  | September 13, 2020| Kulpreet Singh   | Developer        |   ###  
+###   |  4  | September 13, 2020| Kulpreet Singh   | Developer        |   ###
 ###                                                                       ###
 #############################################################################
 ###                                                                       ###
@@ -18,8 +18,11 @@
 #############################################################################
 #############################################################################
 
+### September 14,2020 -> (1)
+ALTER TABLE `vitals` CHANGE `vitalBP` `vitalBP` TEXT NOT NULL, CHANGE `vitalHeartRate` `vitalHeartRate` TEXT NOT NULL, CHANGE `vitalRecordedAt` `vitalRecordedAt` TEXT NOT NULL;
+
 ### September 13,2020 -> (2)
-ALTER TABLE `ipdlog` DROP `audioNoteID`;"
+ALTER TABLE `ipdlog` DROP `audioNoteID`;
 DROP TABLE ` ipdappointment `
 ALTER TABLE `ipdlog` ADD `doctorRemarks` TEXT NULL DEFAULT NULL AFTER `roomID`;
 

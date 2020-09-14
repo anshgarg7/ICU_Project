@@ -356,8 +356,7 @@ if (isset($_POST["submitCheck"])) {
                 </div>
                 <input type="hidden" name="hospitalID" value="<?php echo $hospitalID; ?>">
                 <?php
-                if (sizeof($check) > 0) {
-                  $flag = 1;
+                if ($flag==1) {
                   ?>
                   <input type="hidden" name="flag" value="<?php echo $flag; ?>">
                   <?php

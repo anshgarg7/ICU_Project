@@ -1,36 +1,13 @@
 <?php
-include "../assets/fxn.php";
-if(isset($_SESSION["UID"])==null){
-	?>
-	<script type="text/javascript">
-		window.location='logout.php';
-	</script>
-	<?php
-}
+ include "dash_common.php";
+
 $prescriptionID = $_GET['id'];
 $prescriptionID = e_d('d',$prescriptionID);
-
-$prescriptionDetails = getThis("SELECT  `hospitalID`, `doctorID`, `symptoms`, `dietAdvice`, `specialAdvice`, `medicinePrescribed`, `medicineDosage`, `medicineInstructions`, `generatedAt`, `updatedAt`,`days` FROM `prescription` WHERE `id` = '$prescriptionID' ");
-   $prescriptionDetails = $prescriptionDetails[0];
-$id = $_SESSION["UID"];
-$name = e_d('d',$_SESSION["fullName"]);
-$email = e_d('d',$_SESSION["emailAddress"]);
-$phone = e_d('d',$_SESSION["phoneNumber"]);
-$departmentID = $_SESSION["departmentID"];
-$qualificationID = $_SESSION["qualificationID"];
-$hospitalID = $_SESSION["hospitalID"];
-$pid = $_SESSION["patientIDforDoctor"];
-$patientID = e_d('d',$_SESSION["patientIDforDoctor"]);
-$details = getThis("SELECT  `fullName`, `phoneNumber`, `emailAddress`,`previousMedication`, `previousDiseases` FROM `patients` WHERE `id` = '$patientID'");
-$details = $details[0];
-// $previousprescriptions = getThis("SELECT `id`,`symptoms`,`medicinePrescribed`, `generatedAt`, `updatedAt` FROM `prescription` WHERE `patientID`='$patientID' AND `doctorID`='$id' ORDER BY `generatedAt` DESC");
-$hospital = getThis("SELECT `hospitalName` FROM `hospitals` WHERE `id`='$hospitalID'");
+$prescriptionDetails = getThis("SELECT  `hospitalID`, `doctorID`, `symptoms`, `dietAdvice`, `specialAdvice`, `medicinePrescribed`, `medicineDosage`, `medicineInstructions`, `generatedAt`, `updatedAt`,`days` FROM `prescription` WHERE `id` = '$prescriptionID'");
+$prescriptionDetails = $prescriptionDetails[0];
+$hospital = getThis("SELECT `hospitalName` FROM `hospitals` WHERE `id`='$hospitalId'");
 $hospital = $hospital[0];
 ?>
-<!doctype html>
-<html lang="en">
-
-<?php include "patient_dash_common.php"; ?>
 <div class="app-main__outer">
     <div class="app-main__inner">
         <div class="card-body"><h5 class="card-title">Prescritpion Details</h5>
