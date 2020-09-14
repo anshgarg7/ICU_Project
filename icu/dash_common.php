@@ -154,6 +154,10 @@ $hospital = $hospital[0];
                                     <i class="metismenu-icon pe-7s-diamond"></i>
                                     Previous Patient Records
                                 </a>
+                                <a href="doctoronduty.php">
+                                    <i class="metismenu-icon pe-7s-diamond"></i>
+                                    Select Doctor on Duty
+                                </a>
                             </li>
                     </div>
                 </div>
