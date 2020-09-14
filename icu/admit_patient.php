@@ -83,7 +83,7 @@ if (isset($_POST["submitCheck"])) {
         <div class="main-card mb-3 card">
           <div class="card-body">
             <h5 class="card-title">Admission Form</h5>
-            <form action="functionality/prescription_act.php" method="POST">
+            <form action="functionality/admit_patient_act.php" method="POST">
               <div class="row">
 
                 <div class="col-md-6">
@@ -144,11 +144,11 @@ if (isset($_POST["submitCheck"])) {
                       <option selected disabled>Select Country</option>
                       <?php if ($flag == 1) {
                       ?>
-                        <option selected disabled value="<?php echo $check["countryID"]; ?>"><?php
-                                                                                              $tempID = $check["countryID"];
-                                                                                              $country = getThis("SELECT `name` from `countries` WHERE `id`='$tempID' ");
-                                                                                              $country = $country[0]['name'];
-                                                                                              echo $country; ?>
+                        <option selected value="<?php echo $check["countryID"]; ?>"><?php
+                                                                                    $tempID = $check["countryID"];
+                                                                                    $country = getThis("SELECT `name` from `countries` WHERE `id`='$tempID' ");
+                                                                                    $country = $country[0]['name'];
+                                                                                    echo $country; ?>
                         </option>
                       <?php
                       }
@@ -165,11 +165,11 @@ if (isset($_POST["submitCheck"])) {
                       <option disabled selected>Select Country First</option>
                       <?php if ($flag == 1) {
                       ?>
-                        <option selected disabled value="<?php echo $check["stateID"]; ?>"><?php
-                                                                                            $tempID = $check["stateID"];
-                                                                                            $state = getThis("SELECT `name` from `states` WHERE `id`='$tempID' ");
-                                                                                            $state = $state[0]['name'];
-                                                                                            echo $state; ?>
+                        <option selected value="<?php echo $check["stateID"]; ?>"><?php
+                                                                                  $tempID = $check["stateID"];
+                                                                                  $state = getThis("SELECT `name` from `states` WHERE `id`='$tempID' ");
+                                                                                  $state = $state[0]['name'];
+                                                                                  echo $state; ?>
                         </option>
                       <?php
                       }
@@ -181,11 +181,11 @@ if (isset($_POST["submitCheck"])) {
                       <option disabled selected>Select State First</option>
                       <?php if ($flag == 1) {
                       ?>
-                        <option selected disabled value="<?php echo $check["cityID"]; ?>"><?php
-                                                                                          $tempID = $check["cityID"];
-                                                                                          $city = getThis("SELECT `name` from `cities` WHERE `id`='$tempID' ");
-                                                                                          $city = $city[0]['name'];
-                                                                                          echo $city; ?>
+                        <option selected value="<?php echo $check["cityID"]; ?>"><?php
+                                                                                  $tempID = $check["cityID"];
+                                                                                  $city = getThis("SELECT `name` from `cities` WHERE `id`='$tempID' ");
+                                                                                  $city = $city[0]['name'];
+                                                                                  echo $city; ?>
                         </option>
                       <?php
                       }
@@ -313,7 +313,7 @@ if (isset($_POST["submitCheck"])) {
                   <div class="table-responsive">
                     <table class="table " id="dynamic_field">
                       <tr>
-                        <td><input type="text" name="addressLine1" placeholder="Family History" <?php if ($flag == 1) { ?> value="<?php echo e_d('d', $check['familyHistory']); ?> " <?php } ?> class="form-control name_list" /></td>
+                        <td><input type="text" name="familyHistory" placeholder="Family History" <?php if ($flag == 1) { ?> value="<?php echo e_d('d', $check['familyHistory']); ?> " <?php } ?> class="form-control name_list" /></td>
                       </tr>
                     </table>
                   </div>
@@ -348,26 +348,15 @@ if (isset($_POST["submitCheck"])) {
 
                     <table class="table " id="dynamic_field4">
                       <tr>
-                        <td><input type="text" name="vitals[]" placeholder="Enter Body Vitals" class="form-control name_list" /></td>
+                        <td><input type="text" name="foodHabits[]" placeholder="Enter Body Vitals" class="form-control name_list" /></td>
                         <td><button type="button" name="add4" id="add4" class="mt-2 btn btn-primary">Add More</button></td>
                       </tr>
                     </table>
                   </div>
                 </div>
                 <input type="hidden" name="hospitalID" value="<?php echo $hospitalID; ?>">
-                <?php
-                if ($flag==1) {
-                  ?>
-                  <input type="hidden" name="flag" value="<?php echo $flag; ?>">
-                  <?php
+                <input type="hidden" name="flag" value="<?php echo $flag; ?>">
 
-                }else{
-                  $flag = 0;
-                  ?>
-                  <input type="hidden" name="flag" value="<?php echo $flag; ?>">
-                  <?php
-                }
-                 ?>
                 <button class="mb-2 mr-2 btn btn-success btn-lg btn-block" name="submit">Submit</button>
               </div>
             </form>
@@ -387,7 +376,7 @@ if (isset($_POST["submitCheck"])) {
     var i = <?php echo $x; ?>;
     $('#add1').click(function() {
       i++;
-      $('#dynamic_field1').append('<tr id="rowrm1' + i + '"><td><input type="text" name="vitals[]" placeholder="Enter Previous Medication" class="form-control name_list" /></td><td><button type="button" name="remove" id="rm1' + i + '" class="btn btn-danger btn_remove">X</button></td></tr>');
+      $('#dynamic_field1').append('<tr id="rowrm1' + i + '"><td><input type="text" name="previousMedication[]" placeholder="Enter Previous Medication" class="form-control name_list" /></td><td><button type="button" name="remove" id="rm1' + i + '" class="btn btn-danger btn_remove">X</button></td></tr>');
     });
 
     $(document).on('click', '.btn_remove', function() {
@@ -401,7 +390,7 @@ if (isset($_POST["submitCheck"])) {
     var j = <?php echo $y; ?>;
     $('#add2').click(function() {
       j++;
-      $('#dynamic_field2').append('<tr id="rowrm2' + j + '"><td><input type="text" name="previousMedication[]" placeholder="Enter Previous Diseases" class="form-control name_list" /></td><td><button type="button" name="remove" id="rm2' + j + '" class="btn btn-danger btn_remove">X</button></td></tr>');
+      $('#dynamic_field2').append('<tr id="rowrm2' + j + '"><td><input type="text" name="previousDiseases[]" placeholder="Enter Previous Diseases" class="form-control name_list" /></td><td><button type="button" name="remove" id="rm2' + j + '" class="btn btn-danger btn_remove">X</button></td></tr>');
     });
 
     $(document).on('click', '.btn_remove', function() {
@@ -415,7 +404,7 @@ if (isset($_POST["submitCheck"])) {
     var k = <?php echo $z; ?>;
     $('#add3').click(function() {
       k++;
-      $('#dynamic_field3').append('<tr id="rowrm3' + k + '"><td><input type="text" name="allergicReactions[]" class="form-control name_list" /></td><td><button type = "button" name = "remove" id = "rm3' + k + '" class = "btn btn-danger btn_remove"> X </button></td></tr>');
+      $('#dynamic_field3').append('<tr id="rowrm3' + k + '"><td><input type="text" placeholder="Enter the allergic reactions" name="allergicReactions[]" class="form-control name_list" /></td><td><button type = "button" name = "remove" id = "rm3' + k + '" class = "btn btn-danger btn_remove"> X </button></td></tr>');
     });
 
     $(document).on('click', '.btn_remove', function() {
@@ -430,7 +419,7 @@ if (isset($_POST["submitCheck"])) {
     var l = <?php echo $p; ?>;
     $('#add4').click(function() {
       l++;
-      $('#dynamic_field4').append('<tr id="rowrm4' + l + '"><td><input type="text" name="allergicReactions[]" class="form-control name_list" /></td><td><button type = "button" name = "remove" id = "rm4' + l + '" class = "btn btn-danger btn_remove"> X </button></td></tr>');
+      $('#dynamic_field4').append('<tr id="rowrm4' + l + '"><td><input type="text" name="foodHabits[]" class="form-control name_list" /></td><td><button type = "button" name = "remove" id = "rm4' + l + '" class = "btn btn-danger btn_remove"> X </button></td></tr>');
     });
 
     $(document).on('click', '.btn_remove', function() {
