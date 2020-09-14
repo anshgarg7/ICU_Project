@@ -33,21 +33,17 @@ $familyHistory = e_d('e',$_POST['familyHistory']);
 $foodHabits = $_POST['foodHabits'];
 $foodHabits = serialize($foodHabits);
 $foodHabits = e_d('e',$foodHabits);
-
+$flag = $_POST['flag'];
  if(isset($_POST['submit']))
  {
+   if($flag == '1'){
      $prescriptionID = doThis("INSERT INTO `patients`(`fullName`, `phoneNumber`, `emailAddress`, `addressLine1`, `cityID`, `stateID`, `countryID`, `username`, `password`, `previousMedication`, `ipdToken`, `previousDiseases`, `familyHistory`, `allergicReactions`, `foodHabits`, `insuranceDetails`, `lastLogin`, `createdAt`, `enabled`) VALUES ([value-1],[value-2],[value-3],[value-4],[value-5],[value-6],[value-7],[value-8],[value-9],[value-10],[value-11],[value-12],[value-13],[value-14],[value-15],[value-16],[value-17],[value-18],[value-19],[value-20]))");
-
-     // $prescriptionID = doThis("INSERT INTO `prescription`(`hospitalID`, `doctorID`, `patientID`, `symptoms`, `dietAdvice`, `specialAdvice`,`doctorFindings`,`doctorDiagnosis`,`patientVitals`,`labTestAdvice` ,`medicinePrescribed`, `medicineDosage`, `medicineInstructions`) VALUES ('$hospitalID','$doctorID','$patientID','$symptomsdata','$dietadvice','$specialadvice','$findingsdata','$diagnosisdata','$vitalsdata','$labtestsdata','$meddata','$dosedata','$instructdata')");
-     $result = getThis("SELECT `prescriptionView` FROM `patienttoken` WHERE `token`='$token'");
-     $result = $result[0];
-     $prescriptionID = strval($prescriptionID);
-     $prescript = serialize($prescript);
-     $prescript = e_d('e',$prescript);
-     doThis("UPDATE `patienttoken` SET `prescriptionView`='$prescript' WHERE `token`='$token'");
+   }else {
+     $prescriptionID = doThis("INSERT INTO `patients`(`fullName`, `phoneNumber`, `emailAddress`, `addressLine1`, `cityID`, `stateID`, `countryID`, `username`, `password`, `previousMedication`, `ipdToken`, `previousDiseases`, `familyHistory`, `allergicReactions`, `foodHabits`, `insuranceDetails`, `lastLogin`, `createdAt`, `enabled`) VALUES ([value-1],[value-2],[value-3],[value-4],[value-5],[value-6],[value-7],[value-8],[value-9],[value-10],[value-11],[value-12],[value-13],[value-14],[value-15],[value-16],[value-17],[value-18],[value-19],[value-20]))");
+   }
      ?>
      <script>
-         alert("Prescription Registered Successfully!!");
+         alert("Patient Registered Successfully!!");
          window.location = "../newprescription.php";
  </script>
 <?php

@@ -355,8 +355,20 @@ if (isset($_POST["submitCheck"])) {
                   </div>
                 </div>
                 <input type="hidden" name="hospitalID" value="<?php echo $hospitalID; ?>">
-                <input type="hidden" name="doctorID" value="<?php echo $id; ?>">
-                <input type="hidden" name="patientID" value="<?php echo $patientID; ?>">
+                <?php
+                if (sizeof($check) > 0) {
+                  $flag = 1;
+                  ?>
+                  <input type="hidden" name="flag" value="<?php echo $flag; ?>">
+                  <?php
+
+                }else{
+                  $flag = 0;
+                  ?>
+                  <input type="hidden" name="flag" value="<?php echo $flag; ?>">
+                  <?php
+                }
+                 ?>
                 <button class="mb-2 mr-2 btn btn-success btn-lg btn-block" name="submit">Submit</button>
               </div>
             </form>
