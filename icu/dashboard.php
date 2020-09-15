@@ -76,7 +76,8 @@ $patients = getThis("SELECT `id`, `patientID`, `doctorID`, `bedID`, `entryTime` 
                                             echo e_d('d', $docName);
                                             ?>
                                         </td>
-                                        <td><?php echo $patients[$i]['entryTime']; ?></td>
+                                        <?php $entrytime = date('<b>d M</b> Y <b>h.i.s A</b>',strtotime($patients[$i]['entryTime'])); ?>
+                                        <td><?php echo $entrytime; ?></td>
                                         <td>
                                             <a href="viewPatient.php?id=<?php echo e_d('e', $patients[$i]['id']); ?>" class="btn btn-block btn-primary">View Details</a>
                                         </td>
