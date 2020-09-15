@@ -14,17 +14,17 @@ if ($login) {
 		$_SESSION["roomLocation"] = $login["roomLocation"];
 		$_SESSION["totalBeds"] = $login["totalBeds"];
 ?>
-			<script type="text/javascript">
-				window.location = '../index.php';
-			</script>
-		<?php
-}
-}else{
-		?>
 		<script type="text/javascript">
-			alert("Login Failed ! Please try again !!");
-			window.location = '../index.php';
+			window.location = '../dashboard.php';
 		</script>
-<?php
+	<?php
 	}
+} else {
+	?>
+	<script type="text/javascript">
+		alert("Login Failed ! Please try again !!");
+		window.location = '../index.php';
+	</script>
+<?php
+}
 ?>
