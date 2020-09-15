@@ -3,9 +3,9 @@ include "dash_common.php";
 $flag = 0;
 if (isset($_POST["submitCheck"])) {
   $name = e_d('e', $_POST["patientName"]);
-  $phone = e_d('e', $_POST["phoneNumber"]);
+  $phone = e_d('e', trim($_POST["phoneNumber"]));
 
-  $check = getThis("SELECT * FROM `patients` WHERE `fullName` = '$name' AND `phoneNumber`='$phone'");
+  $check = getThis("SELECT * FROM `patients` WHERE `fullName`='$name' AND `phoneNumber`='$phone'");
 
   $flag = 0;
   if (sizeof($check) > 0) {
@@ -91,7 +91,7 @@ if (isset($_POST["submitCheck"])) {
                   <div class="table-responsive">
                     <table class="table " id="dynamic_field">
                       <tr>
-                        <td><input type="text" name="patientName" placeholder="Enter Patient Name" class="form-control name_list" <?php if ($flag == 1) { ?> value="<?php echo e_d('d', $check['fullName']); ?> " <?php } ?> /></td>
+                        <td><input type="text" name="patientName" placeholder="Enter Patient Name" class="form-control name_list" <?php if ($flag == 1) { ?> value="<?php echo trim(e_d('d', $check['fullName'])); ?>" <?php } ?> /></td>
                       </tr>
                     </table>
                   </div>
@@ -101,7 +101,7 @@ if (isset($_POST["submitCheck"])) {
                   <div class="table-responsive">
                     <table class="table " id="dynamic_field">
                       <tr>
-                        <td><input type="text" name="phoneNumber" placeholder="Enter Patient Phone Number" class="form-control name_list" <?php if ($flag == 1) { ?> value="<?php echo e_d('d', $check['phoneNumber']); ?> " <?php } ?> /></td>
+                        <td><input type="text" name="phoneNumber" placeholder="Enter Patient Phone Number" class="form-control name_list" <?php if ($flag == 1) { ?> value="<?php echo e_d('d', $check['phoneNumber']); ?>" <?php } ?> /></td>
                       </tr>
                     </table>
                   </div>
@@ -111,7 +111,7 @@ if (isset($_POST["submitCheck"])) {
                   <div class="table-responsive">
                     <table class="table " id="dynamic_field">
                       <tr>
-                        <td><input type="email" name="emailAddress" placeholder="Enter Patient Email Address" <?php if ($flag == 1) { ?> value="<?php echo e_d('d', $check['emailAddress']); ?> " <?php } ?> class="form-control name_list" /></td>
+                        <td><input type="email" name="emailAddress" placeholder="Enter Patient Email Address" <?php if ($flag == 1) { ?> value="<?php echo e_d('d', $check['emailAddress']); ?>" <?php } ?> class="form-control name_list" /></td>
                       </tr>
                     </table>
                   </div>
@@ -121,7 +121,7 @@ if (isset($_POST["submitCheck"])) {
                   <div class="table-responsive">
                     <table class="table " id="dynamic_field">
                       <tr>
-                        <td><input type="text" name="addressLine1" placeholder="Address Line 1" <?php if ($flag == 1) { ?> value="<?php echo e_d('d', "RkVSS0RaN0hiL3ROQjRBSkZYUmFLN3poZmg1dU1pYTMzbkpYQWJMajZHZz0="); ?> " <?php } ?> class="form-control name_list" /></td>
+                        <td><input type="text" name="emergency" placeholder="Emergency Contact Number" <?php if ($flag == 1) { ?> value="<?php echo e_d('d', $check['emergencyPhone']); ?>" <?php } ?> class="form-control name_list" /></td>
                       </tr>
                     </table>
                   </div>
@@ -131,7 +131,7 @@ if (isset($_POST["submitCheck"])) {
                   <div class="table-responsive">
                     <table class="table " id="dynamic_field">
                       <tr>
-                        <td><input type="text" name="addressLine1" placeholder="Address Line 1" <?php if ($flag == 1) { ?> value="<?php echo e_d('d', $check['addressLine1']); ?> " <?php } ?> class="form-control name_list" /></td>
+                        <td><input type="text" name="addressLine1" placeholder="Address Line 1" <?php if ($flag == 1) { ?> value="<?php echo e_d('d', $check['addressLine1']); ?>" <?php } ?> class="form-control name_list" /></td>
                       </tr>
                     </table>
                   </div>
@@ -200,6 +200,7 @@ if (isset($_POST["submitCheck"])) {
                     $x = 0;
                     if ($flag == 1) {
                     ?>
+                      <button type="button" name="add1" id="add1" class="btn btn-block btn-primary">Add More</button>
                       <table class="table" id="dynamic_field1">
                         <?php
                         $previousMedication = e_d('d', $check['previousMedication']);
@@ -217,15 +218,16 @@ if (isset($_POST["submitCheck"])) {
                         ?>
                       </table>
                     <?php
-                    }
+                    } else {
                     ?>
 
-                    <table class="table " id="dynamic_field1">
-                      <tr>
-                        <td><input type="text" name="previousMedication[]" placeholder="Enter Previous Medication" class="form-control name_list" /></td>
-                        <td><button type="button" name="add1" id="add1" class="mt-2 btn btn-primary">Add More</button></td>
-                      </tr>
-                    </table>
+                      <table class="table " id="dynamic_field1">
+                        <tr>
+                          <td><input type="text" name="previousMedication[]" placeholder="Enter Previous Medication" class="form-control name_list" /></td>
+                          <td><button type="button" name="add1" id="add1" class="mt-2 btn btn-primary">Add More</button></td>
+                        </tr>
+                      </table>
+                    <?php } ?>
                   </div>
                 </div>
 
@@ -240,6 +242,7 @@ if (isset($_POST["submitCheck"])) {
                     $y = 0;
                     if ($flag == 1) {
                     ?>
+                      <button type="button" name="add2" id="add2" class="btn btn-block btn-primary">Add More</button>
                       <table class="table" id="dynamic_field2">
                         <?php
                         $previousDiseases = e_d('d', $check['previousDiseases']);
@@ -257,14 +260,15 @@ if (isset($_POST["submitCheck"])) {
                         ?>
                       </table>
                     <?php
-                    }
+                    } else {
                     ?>
-                    <table class="table " id="dynamic_field2">
-                      <tr>
-                        <td><input type="text" name="previousDiseases[]" placeholder="Enter Previous Major Diseases" class="form-control name_list" /></td>
-                        <td><button type="button" name="add2" id="add2" class="mt-2 btn btn-primary">Add More</button></td>
-                      </tr>
-                    </table>
+                      <table class="table " id="dynamic_field2">
+                        <tr>
+                          <td><input type="text" name="previousDiseases[]" placeholder="Enter Previous Major Diseases" class="form-control name_list" /></td>
+                          <td><button type="button" name="add2" id="add2" class="mt-2 btn btn-primary">Add More</button></td>
+                        </tr>
+                      </table>
+                    <?php } ?>
                   </div>
                 </div>
 
@@ -281,6 +285,7 @@ if (isset($_POST["submitCheck"])) {
                     $z = 0;
                     if ($flag == 1) {
                     ?>
+                      <button type="button" name="add3" id="add3" class="btn btn-block btn-primary">Add More</button>
                       <table class="table" id="dynamic_field3">
                         <?php
                         $allergicReactions = e_d('d', $check['allergicReactions']);
@@ -297,14 +302,15 @@ if (isset($_POST["submitCheck"])) {
                         ?>
                       </table>
                     <?php
-                    }
+                    } else {
                     ?>
-                    <table class="table " id="dynamic_field3">
-                      <tr>
-                        <td><input type="text" name="allergicReactions[]" placeholder="Enter Body Vitals" class="form-control name_list" /></td>
-                        <td><button type="button" name="add3" id="add3" class="mt-2 btn btn-primary">Add More</button></td>
-                      </tr>
-                    </table>
+                      <table class="table " id="dynamic_field3">
+                        <tr>
+                          <td><input type="text" name="allergicReactions[]" placeholder="Enter Allergic Reactions" class="form-control name_list" /></td>
+                          <td><button type="button" name="add3" id="add3" class="mt-2 btn btn-primary">Add More</button></td>
+                        </tr>
+                      </table>
+                    <?php } ?>
                   </div>
                 </div>
 
@@ -313,7 +319,7 @@ if (isset($_POST["submitCheck"])) {
                   <div class="table-responsive">
                     <table class="table " id="dynamic_field">
                       <tr>
-                        <td><input type="text" name="familyHistory" placeholder="Family History" <?php if ($flag == 1) { ?> value="<?php echo e_d('d', $check['familyHistory']); ?> " <?php } ?> class="form-control name_list" /></td>
+                        <td><input type="text" name="familyHistory" placeholder="Family History" <?php if ($flag == 1) { ?> value="<?php echo e_d('d', $check['familyHistory']); ?>" <?php } ?> class="form-control name_list" /></td>
                       </tr>
                     </table>
                   </div>
@@ -327,7 +333,8 @@ if (isset($_POST["submitCheck"])) {
                     $p = 0;
                     if ($flag == 1) {
                     ?>
-                      <table class="table ">
+                      <button type="button" name="add4" id="add4" class="btn btn-block btn-primary">Add More</button>
+                      <table class="table" id="dynamic_field4">
                         <?php
                         $foodHabits = e_d('d', $check['foodHabits']);
                         $foodHabits = unserialize($foodHabits);
@@ -343,16 +350,32 @@ if (isset($_POST["submitCheck"])) {
                         ?>
                       </table>
                     <?php
-                    }
+                    } else {
                     ?>
 
-                    <table class="table " id="dynamic_field4">
-                      <tr>
-                        <td><input type="text" name="foodHabits[]" placeholder="Enter Body Vitals" class="form-control name_list" /></td>
-                        <td><button type="button" name="add4" id="add4" class="mt-2 btn btn-primary">Add More</button></td>
-                      </tr>
-                    </table>
+                      <table class="table " id="dynamic_field4">
+                        <tr>
+                          <td><input type="text" name="foodHabits[]" placeholder="Enter Food Habits" class="form-control name_list" /></td>
+                          <td><button type="button" name="add4" id="add4" class="mt-2 btn btn-primary">Add More</button></td>
+                        </tr>
+                      </table>
+                    <?php } ?>
                   </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="position-relative form-group"><label for="exampleState" class=""><span class="label-input100">State</span></label>
+                    <select class="form-control" name="bed" id="bed" required>
+                      <option disabled selected>Select Bed Number</option>
+                      <?php $beds = getThis("SELECT `id`, `bedNumber`, `bedUsability`, `equipmentAvailable` FROM `beds` WHERE `roomID`='$id' AND `currIpdId`=0");
+                      for ($i = 0; $i < sizeof($beds); $i++) {
+                        $bed = $beds[$i];
+                      ?>
+                        <option value="<?php echo $bed['id']; ?>"><?php echo e_d('d', $bed['bedNumber']); ?></option>
+                      <?php
+                      }
+                      ?>
+                    </select></div>
                 </div>
                 <input type="hidden" name="hospitalID" value="<?php echo $hospitalID; ?>">
                 <input type="hidden" name="flag" value="<?php echo $flag; ?>">
@@ -419,7 +442,7 @@ if (isset($_POST["submitCheck"])) {
     var l = <?php echo $p; ?>;
     $('#add4').click(function() {
       l++;
-      $('#dynamic_field4').append('<tr id="rowrm4' + l + '"><td><input type="text" name="foodHabits[]" class="form-control name_list" /></td><td><button type = "button" name = "remove" id = "rm4' + l + '" class = "btn btn-danger btn_remove"> X </button></td></tr>');
+      $('#dynamic_field4').append('<tr id="rowrm4' + l + '"><td><input type="text" name="foodHabits[]" placeholder="Enter Food Habits" class="form-control name_list" /></td><td><button type = "button" name = "remove" id = "rm4' + l + '" class = "btn btn-danger btn_remove"> X </button></td></tr>');
     });
 
     $(document).on('click', '.btn_remove', function() {
