@@ -7,9 +7,6 @@ if(isset($_SESSION["UID"])==null){
  	</script>
 	<?php
 }
-$hospitalID = $_POST['hospitalID'];
-$doctorID = $_POST['doctorID'];
-$patientID = $_POST['patientID'];
 $token = $_SESSION['patienttoken'];
 $symptomsdata = $_POST['symptoms'];
 $symptomsdata = serialize($symptomsdata);
@@ -29,19 +26,15 @@ $findingsdata = e_d('e',$findingsdata);
 $diagnosisdata = $_POST['diagnosis'];
 $diagnosisdata = serialize($diagnosisdata);
 $diagnosisdata = e_d('e',$diagnosisdata);
-$vitalsdata = $_POST['vitals'];
-$vitalsdata = serialize($vitalsdata);
-$vitalsdata = e_d('e',$vitalsdata);
 $labtestsdata = $_POST['labtests'];
 $labtestsdata = serialize($labtestsdata);
 $labtestsdata = e_d('e',$labtestsdata);
-$days = $_POST['days'];
 $dietadvice = e_d('e',$_POST['diet']);
 $specialadvice = e_d('e',$_POST['special']);
 
  if(isset($_POST['submit']))
  {
-     $prescriptionID = doThis("INSERT INTO `prescription`(`hospitalID`, `doctorID`, `patientID`, `symptoms`, `dietAdvice`, `specialAdvice`,`doctorFindings`,`doctorDiagnosis`,`patientVitals`,`labTestAdvice` ,`medicinePrescribed`, `medicineDosage`, `medicineInstructions`,`days`) VALUES ('$hospitalID','$doctorID','$patientID','$symptomsdata','$dietadvice','$specialadvice','$findingsdata','$diagnosisdata','$vitalsdata','$labtestsdata','$meddata','$dosedata','$instructdata','$days')");
+   $prescriptionID = doThis("INSERT INTO `prescription`(`symptoms`, `dietAdvice`, `specialAdvice`,`doctorFindings`,`doctorDiagnosis`,`labTestAdvice` ,`medicinePrescribed`, `medicineDosage`, `medicineInstructions`) VALUES ('$symptomsdata','$dietadvice','$specialadvice','$findingsdata','$diagnosisdata','$labtestsdata','$meddata','$dosedata','$instructdata')");
 
      // $prescriptionID = doThis("INSERT INTO `prescription`(`hospitalID`, `doctorID`, `patientID`, `symptoms`, `dietAdvice`, `specialAdvice`,`doctorFindings`,`doctorDiagnosis`,`patientVitals`,`labTestAdvice` ,`medicinePrescribed`, `medicineDosage`, `medicineInstructions`) VALUES ('$hospitalID','$doctorID','$patientID','$symptomsdata','$dietadvice','$specialadvice','$findingsdata','$diagnosisdata','$vitalsdata','$labtestsdata','$meddata','$dosedata','$instructdata')");
      $result = getThis("SELECT `prescriptionView` FROM `patienttoken` WHERE `token`='$token'");
