@@ -17,6 +17,8 @@
 ###                                                                       ###
 #############################################################################
 #############################################################################
+### September 15,2020 -> (2)
+ALTER TABLE `patients` DROP `ipdToken`;
 
 ### September 14,2020 -> (1)
 ALTER TABLE `vitals` CHANGE `vitalBP` `vitalBP` TEXT NOT NULL, CHANGE `vitalHeartRate` `vitalHeartRate` TEXT NOT NULL, CHANGE `vitalRecordedAt` `vitalRecordedAt` TEXT NOT NULL;

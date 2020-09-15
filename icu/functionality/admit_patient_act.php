@@ -35,16 +35,17 @@ $foodHabits = serialize($foodHabits);
 $foodHabits = e_d('e', $foodHabits);
 $flag = $_POST['flag'];
 $prescriptionID = NULL;
+$patientID = NULL;
 if (isset($_POST['submit'])) {
   if ($flag == 1) {
-    // update query here 
-    // $prescriptionID = doThis("INSERT INTO `patients`(`fullName`, `phoneNumber`, `emailAddress`, `addressLine1`, `cityID`, `stateID`, `countryID`, `username`, `password`, `previousMedication`, `ipdToken`, `previousDiseases`, `familyHistory`, `allergicReactions`, `foodHabits`, `insuranceDetails`, `lastLogin`, `createdAt`, `enabled`) VALUES ([value-1],[value-2],[value-3],[value-4],[value-5],[value-6],[value-7],[value-8],[value-9],[value-10],[value-11],[value-12],[value-13],[value-14],[value-15],[value-16],[value-17],[value-18],[value-19],[value-20]))");
+    $patientID = getThis("SELECT `id` FROM `patients` WHERE `emailAddress`='$emailAddress' ");
+    $patientID = $patientID[0]["id"];
+    $res = doThis("UPDATE `patients` SET `fullName`= '$patientName',`phoneNumber`= '$phoneNumber',`emailAddress`= '$emailAddress',`addressLine1`= '$addressLine1',`cityID`='$cityID',`stateID`= '$stateID',`countryID`= '$countryID',`username`= '$emailAddress',`password`= '$phoneNumber',`previousMedication`= '$previousMed',`previousDiseases`= '$previousDiseases',`familyHistory`= '$familyHistory',`allergicReactions`= '$allergies',`foodHabits`= '$foodHabits',`lastLogin`= CURRENT_TIMESTAMP() WHERE `id`='$patientID'");
+    echo $patientID;
   } else {
-    // complete this query 
-    $prescriptionID = doThis("INSERT INTO `patients`(`fullName`, `phoneNumber`, `emailAddress`, `addressLine1`, `cityID`, `stateID`, `countryID`, `username`, `password`, `previousMedication`, `ipdToken`, `previousDiseases`, `familyHistory`, `allergicReactions`, `foodHabits`, `insuranceDetails`, `lastLogin`, `createdAt`, `enabled`) VALUES ([value-1],[value-2],[value-3],[value-4],[value-5],[value-6],[value-7],[value-8],[value-9],[value-10],[value-11],[value-12],[value-13],[value-14],[value-15],[value-16],[value-17],[value-18],[value-19],[value-20]))");
+    $patientID = doThis("INSERT INTO `patients`(`fullName`, `phoneNumber`, `emailAddress`, `addressLine1`, `cityID`, `stateID`, `countryID`, `username`, `password`, `previousMedication`, `previousDiseases`, `familyHistory`, `allergicReactions`, `foodHabits`, `createdAt`)
+     VALUES ('$patientName','$phoneNumber','$emailAddress','$addressLine1','$cityID','$stateID','$countryID','$emailAddress','$phoneNumber','$previousMed','$previousDiseases','$familyHistory','$allergies','$foodHabits',CURRENT_TIMESTAMP() )");
   }
-
-  echo $flag;
 ?>
   <script>
     alert("Patient Registered Successfully!!");
