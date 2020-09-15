@@ -40,7 +40,7 @@ $patients = getThis("SELECT `id`, `patientID`, `doctorID`, `bedID`, `entryTime` 
                                 <tr>
                                     <th>Bed Number</th>
                                     <th>Patient Name</th>
-                                    <th>Lead Doctor</th>
+
                                     <th>Entry Time</th>
                                     <th>Action</th>
                                 </tr>
@@ -68,14 +68,7 @@ $patients = getThis("SELECT `id`, `patientID`, `doctorID`, `bedID`, `entryTime` 
                                             echo e_d('d', $fullName);
                                             ?>
                                         </td>
-                                        <td>
-                                            <?php
-                                            $x = $patients[$i]['doctorID'];
-                                            $docName = getThis("SELECT `fullName` FROM `doctors` WHERE `id` = '$x'");
-                                            $docName = $docName[0]['fullName'];
-                                            echo e_d('d', $docName);
-                                            ?>
-                                        </td>
+
                                         <td><?php echo $patients[$i]['entryTime']; ?></td>
                                         <td>
                                             <a href="viewPatient.php?id=<?php echo e_d('e', $patients[$i]['id']); ?>" class="btn btn-block btn-primary">View Details</a>

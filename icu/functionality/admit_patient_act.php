@@ -40,15 +40,15 @@ if (isset($_POST['submit'])) {
   $prescriptionID = NULL;
   $patientID = NULL;
   $bed = $_POST["bed"];
-
+  $emergencyContact = $_POST["emergency"];
   if ($flag == 1) {
     $patientID = getThis("SELECT `id` FROM `patients` WHERE `phoneNumber`='$phoneNumber' ");
     $patientID = $patientID[0]["id"];
-    $res = doThis("UPDATE `patients` SET `fullName`= '$patientName',`phoneNumber`= '$phoneNumber',`emailAddress`= '$emailAddress',`addressLine1`= '$addressLine1',`cityID`='$cityID',`stateID`= '$stateID',`countryID`= '$countryID',`username`= '$emailAddress',`password`= '$phoneNumber',`previousMedication`= '$previousMed',`previousDiseases`= '$previousDiseases',`familyHistory`= '$familyHistory',`allergicReactions`= '$allergies',`foodHabits`= '$foodHabits',`lastLogin`= CURRENT_TIMESTAMP() WHERE `id`='$patientID'");
+    $res = doThis("UPDATE `patients` SET `fullName`= '$patientName',`phoneNumber`= '$phoneNumber',`emailAddress`= '$emailAddress',`emergencyPhone`='$emergencyContact',`addressLine1`= '$addressLine1',`cityID`='$cityID',`stateID`= '$stateID',`countryID`= '$countryID',`username`= '$emailAddress',`password`= '$phoneNumber',`previousMedication`= '$previousMed',`previousDiseases`= '$previousDiseases',`familyHistory`= '$familyHistory',`allergicReactions`= '$allergies',`foodHabits`= '$foodHabits',`lastLogin`= CURRENT_TIMESTAMP() WHERE `id`='$patientID'");
     echo $patientID;
   } else {
-    $patientID = doThis("INSERT INTO `patients`(`fullName`, `phoneNumber`, `emailAddress`, `addressLine1`, `cityID`, `stateID`, `countryID`, `username`, `password`, `previousMedication`, `previousDiseases`, `familyHistory`, `allergicReactions`, `foodHabits`, `createdAt`)
-     VALUES ('$patientName','$phoneNumber','$emailAddress','$addressLine1','$cityID','$stateID','$countryID','$emailAddress','$phoneNumber','$previousMed','$previousDiseases','$familyHistory','$allergies','$foodHabits',CURRENT_TIMESTAMP() )");
+    $patientID = doThis("INSERT INTO `patients`(`fullName`, `phoneNumber`, `emailAddress`,`emergencyPhone`, `addressLine1`, `cityID`, `stateID`, `countryID`, `username`, `password`, `previousMedication`, `previousDiseases`, `familyHistory`, `allergicReactions`, `foodHabits`, `createdAt`)
+     VALUES ('$patientName','$phoneNumber','$emailAddress','$emergencyContact','$addressLine1','$cityID','$stateID','$countryID','$emailAddress','$phoneNumber','$previousMed','$previousDiseases','$familyHistory','$allergies','$foodHabits',CURRENT_TIMESTAMP() )");
   }
 
   $ipdID = doThis("INSERT INTO `ipdlog`(`patientId`, `hospitalId`,`bedId`, `roomID`, `entryTime`)
