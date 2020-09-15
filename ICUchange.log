@@ -19,6 +19,9 @@
 #############################################################################
 
 ### September 15,2020 -> (2)
+ALTER TABLE `prescription` DROP `hospitalID`, DROP `doctorID`, DROP `patientID`, DROP `patientVitals`, DROP `days`, DROP `updatedAt`;
+
+### September 15,2020 -> (2)
 ALTER TABLE `patients` DROP `ipdToken`;
 ALTER TABLE `patients` ADD `emergencyPhone` TEXT NOT NULL AFTER `phoneNumber`;
 
