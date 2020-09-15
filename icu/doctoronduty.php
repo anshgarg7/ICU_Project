@@ -13,6 +13,59 @@
 				</div>
 			</div>
 		</div>
+    <div class="row">
+      <?php if (isset($_SESSION['doctor'])){?>
+      <div class="col-md-12">
+          <div class="main-card mb-3 card" style="overflow-x:scroll;">
+              <div class="card-body">
+                  <h5 class="card-title">Current Doctor on Duty</h5>
+                  <table class="mb-0 table table-striped">
+                      <tbody>
+                          <tr>
+                              <td>
+                                Doctor Name
+                              </td>
+                              <td>
+                                <?php $doctorID = $_SESSION['doctor'];
+                                $doctor = getThis("SELECT * FROM `doctors` WHERE `id`='$doctorID'");
+                                $doctor = $doctor[0];
+                                echo e_d('d',$doctor['fullName']); ?>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  Department Name
+                              </td>
+                              <td><?php $departmentID = $_SESSION['department'];
+                              $departmentdata = getThis("SELECT * FROM `departments` WHERE `id`='$departmentID'");
+                              $departmentdata = $departmentdata[0];
+                              echo e_d('d',$departmentdata['departmentName']); ?>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  Email Address
+                              </td>
+                              <td>
+                                <?php echo e_d('d',$doctor['emailAddress']); ?>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  Phone Number
+                              </td>
+                              <td>
+                                  <?php echo e_d('d',$doctor['phoneNumber']); ?>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+    <?php } ?>
+
+    <div class="col-md-12">
 		<form action="functionality/ondutydoctoract.php" method="post">
 			<div class="wrap-input100">
 				<div class="position-relative form-group"><label for="exampleCity" class=""><span class="label-input100">
@@ -21,7 +74,7 @@
 						<option selected disabled>Select Doctor Department</option>
 						<?php $department = getThis("SELECT `id`, `departmentName` FROM `departments` ORDER BY `departmentName` ASC") ?>
 						<?php foreach ($department as $k => $c) { ?>
-							<option value="<?php echo $c['id']; ?>"><?php echo $c['departmentName']; ?></option>
+							<option value="<?php echo $c['id']; ?>"><?php echo e_d('d',$c['departmentName']); ?></option>
 						<?php } ?>
 					</select></div>
 				<div class="wrap-input100">
@@ -35,6 +88,8 @@
 			</div>
 
 		</form>
+    </div>
+    </div>
 	</div>
 </div>
 </body>
