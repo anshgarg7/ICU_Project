@@ -17,7 +17,7 @@
 					<div class="card-body">
 						<h5 class="card-title">Prescription Form</h5>
 						<form action="functionality/prescription_act.php" method="POST">
-							<b>Patient Complaints</b>
+							<b>Symptoms</b>
 							<div class="table-responsive">
 								<table class="table " id="dynamic_field">
 									<tr>
@@ -35,15 +35,7 @@
 									</tr>
 								</table>
 							</div>
-							<b>Vitals</b>
-							<div class="table-responsive">
-								<table class="table " id="dynamic_field4">
-									<tr>
-										<td><input type="text" name="vitals[]" placeholder="Enter Body Vitals" class="form-control name_list" /></td>
-										<td><button type="button" name="add4" id="add4" class="mt-2 btn btn-primary">Add More</button></td>
-									</tr>
-								</table>
-							</div>
+
 							<b>Diagnosis</b>
 							<div class="table-responsive">
 								<table class="table " id="dynamic_field3">
@@ -83,9 +75,8 @@
 									</tbody>
 								</table>
 							</div>
-							<input type="hidden" name="hospitalID" value="<?php echo $hospitalID; ?>">
-							<input type="hidden" name="doctorID" value="<?php echo $id; ?>">
-							<input type="hidden" name="patientID" value="<?php echo $patientID; ?>">
+
+							<input type="hidden" name="ipdID" value="<?php echo $ipdID; ?>">
 							<button class="mb-2 mr-2 btn btn-success btn-lg btn-block" name="submit">Submit</button>
 						</form>
 					</div>
