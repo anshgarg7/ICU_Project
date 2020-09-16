@@ -76,17 +76,6 @@ for($i=0;$i<sizeof($result);$i++)
 
 echo json_encode($date);
 }
-$hospitalID = $_SESSION['hospitalId'];
-if (isset($_POST["department"])) {
-  $temp_did = $_POST["department"];
-  $result = getThis("SELECT `id`, `fullName` FROM `doctors` WHERE `departmentID`='$temp_did' AND `hospitalID` = '$hospitalID' ");
-
-  for ($i = 0; $i < sizeof($result); $i++) {
-    $result[$i]['fullName'] = e_d('d', $result[$i]['fullName']);
-  }
-  echo json_encode($result);
-}
-
 
 if (isset($_POST["room"])) {
   $temp_rid = $_POST["room"];
