@@ -1,6 +1,6 @@
 <?php include "dash_common.php"; ?>
 <?php
-$patients = getThis("SELECT `id`, `patientID`, `doctorID`, `bedID`, `doctorRemarks`, `entryTime`, `exitTime` from `ipdlog` WHERE `roomID`='$id' AND `enabled`= 0");
+$patients = getThis("SELECT `id`, `patientID`, `bedID`, `doctorRemarks`, `entryTime`, `exitTime` from `ipdlog` WHERE `roomID`='$id' AND `enabled`= 0");
 
 ?>
 <!doctype html>
