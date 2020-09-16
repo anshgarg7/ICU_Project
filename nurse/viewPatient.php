@@ -142,17 +142,17 @@ $result = $result[0];
                 </div>
             </div>
 
-            <?php if ($result['ipdenabled'] != 0) {
+            <!-- <?php //if ($result['ipdenabled'] != 0) {
             ?>
                 <div class="col-md-12">
                     <div class="main-card mb-3 card">
                         <div class="card-body">
-                            <a class="mb-2 mr-2 btn btn-danger btn-lg btn-block" href="functionality/checkoutpatientact.php?id=<?php echo e_d('e', $ipdId); ?>">Checkout Patient</a>
+                            <a class="mb-2 mr-2 btn btn-danger btn-lg btn-block" href="functionality/checkoutpatientact.php?id=<?php //echo e_d('e', $ipdId); ?>">Checkout Patient</a>
                         </div>
                     </div>
                 </div>
             <?php
-            } ?>
+          //  } ?> -->
 
         </div>
     </div>
