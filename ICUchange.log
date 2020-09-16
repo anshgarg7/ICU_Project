@@ -18,6 +18,9 @@
 #############################################################################
 #############################################################################
 
+### September 16,2020 -> (4)
+ALTER TABLE `nurses` ADD `roomID` INT(11) NOT NULL AFTER `departmentID`;
+
 ### September 16,2020 -> (2)
 ALTER TABLE `doctors` DROP `tokenID`, DROP `allTokens`, DROP `consultationFee`, DROP `slotStartTime`, DROP `slotEndTime`, DROP `visitingDays`, DROP `currentActivity`, DROP `lastActivity`;
 ALTER TABLE `ipdlog` DROP `doctorId`;

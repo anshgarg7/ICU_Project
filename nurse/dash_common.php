@@ -8,6 +8,7 @@ if (isset($_SESSION["UID"]) == null) {
 <?php
 }
 $id = $_SESSION["UID"];
+$fullName = e_d('d', $_SESSION["fullName"]);
 $roomName = e_d('d', $_SESSION["roomName"]);
 $roomDescription = e_d('d', $_SESSION["roomDescription"]);
 $roomLocation = e_d('d', $_SESSION["roomLocation"]);
@@ -31,7 +32,7 @@ $hospital = $hospital[0];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Doctor Dashboard</title>
+    <title>Nurse Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <meta name="description" content="This is an example dashboard created using build-in elements and components.">
     <meta name="msapplication-tap-highlight" content="no">
@@ -84,7 +85,7 @@ $hospital = $hospital[0];
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
-                                        <?php echo $roomName; ?>
+                                        <?php echo $fullName; ?>
                                     </div>
                                     <div class="widget-subheading">
                                         <?php echo e_d('d', $hospital['hospitalName']); ?>
@@ -144,7 +145,7 @@ $hospital = $hospital[0];
                                     ICU Dashboard
                                 </a>
                             </li>
-                            <li class="app-sidebar__heading">Options</li>
+                            <!-- <li class="app-sidebar__heading">Options</li>
                             <li>
                                 <a href="admit_patient.php">
                                     <i class="metismenu-icon pe-7s-diamond"></i>
@@ -158,7 +159,7 @@ $hospital = $hospital[0];
                                     <i class="metismenu-icon pe-7s-diamond"></i>
                                     Select Doctor on Duty
                                 </a>
-                            </li>
+                            </li> -->
                     </div>
                 </div>
             </div>

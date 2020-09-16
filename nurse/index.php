@@ -27,8 +27,8 @@
                     </div>
 
                     <div class="signin-form">
-                        <h2 class="form-title">ICU SIGN IN</h2>
-                        <form method="POST" class="register-form" id="login-form" action="functionality/iculoginact.php">
+                        <h2 class="form-title">NURSE SIGN IN</h2>
+                        <form method="POST" class="register-form" id="login-form" action="functionality/nurseloginact.php">
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="username" id="username" placeholder="User Name" />
