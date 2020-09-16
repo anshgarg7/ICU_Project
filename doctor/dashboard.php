@@ -1,8 +1,9 @@
 <?php include "dash_common.php"; ?>
 <?php
-$patients = getThis("SELECT `id`, `patientID`, `doctorID`, `bedID`, `entryTime` from `ipdlog` WHERE `roomID`='$id' AND `enabled`= 1");
+if (isset($_POST["room"]) == null) {
+    $patients = getThis("SELECT `id`, `patientID`, `doctorID`, `bedID`, `entryTime` from `ipdlog` WHERE `roomID`='$id' AND `enabled`= 1");
+}?>
 
-?>
 <!doctype html>
 <html lang="en">
 
@@ -22,7 +23,30 @@ $patients = getThis("SELECT `id`, `patientID`, `doctorID`, `bedID`, `entryTime` 
                 </div>
             </div>
         </div>
+        <div class="row">
+        <div class="col-md-12">
+		<form action="selectroom.php" method="post">
+			<div class="wrap-input100">
+				<div class="position-relative form-group"><label for="exampleCity" class=""><span class="label-input100">
+							<h5>ICU Room</h5>
+						</span></label><select class="form-control" name="room" id="room_c" required>
+						<option selected disabled>Select ICU Room</option>
+						<?php $room = getThis("SELECT `id`, `roomName` FROM `rooms` ORDER BY `roomName` ASC") ?>
+						<?php foreach ($room as $k => $c) { ?>
+							<option value="<?php echo $c['id']; ?>"><?php echo e_d('d',$c['roomName']); ?></option>
+						<?php } ?>
+					</select></div>
+				<button class="mb-2 mr-2 btn btn-primary btn-lg btn-block" type="submit" name="submit">Select Room</button>
+			</div>
 
+		</form>
+    </div>
+    </div>
+	</div>
+</div>
+        </div>
+        <?php
+        if(isset($_POST["room"]) == null) {?>
         <?php
         if (sizeof($patients) == 0) {
         ?>
@@ -83,12 +107,13 @@ $patients = getThis("SELECT `id`, `patientID`, `doctorID`, `bedID`, `entryTime` 
                     </div>
                 </div>
             </div>
+        <?php 
+        }
+        }
+        ?>
     </div>
 </div>
 
-
-<?php
-        } ?>
 
 </body>
 

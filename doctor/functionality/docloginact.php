@@ -14,13 +14,7 @@ if ($login) {
 		$_SESSION["fullName"] = $login["fullName"];
 		$_SESSION["phoneNumber"] = $login["phoneNumber"];
 		$_SESSION["emailAddress"] = $login["emailAddress"];
-		$_SESSION["dob"] = $login["dob"];
-		$_SESSION["addressLine1"] = $login["addressLine1"];
-		$_SESSION["cityID"] = $login["cityID"];
-		$_SESSION["stateID"] = $login["stateID"];
-		$_SESSION["countryID"] = $login["countryID"];
-		$_SESSION["lastLogin"] = $login["lastLogin"];
-		$_SESSION["createdAt"] = $login["createdAt"];
+		doThis("UPDATE `doctors` SET `lastLogin` = CURRENT_TIMESTAMP() WHERE `id`='$id'");
 ?>
 		<script type="text/javascript">
 			window.location = '../dashboard.php';
