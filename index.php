@@ -17,23 +17,32 @@
     <![endif]-->
 
 </head>
+<body bgColor='#009efb'>
+    <section id="pagetitle" class="pagetitle dark" style="background-image:url(https://genetichealing.in/pms/wp-content/uploads/2017/06/slider.jpg);">
+    <br>
+    <br>
+        <h1 align="center" class="pagetitle-title heading">ICU MANAGEMENT SYSTEM</h1>
+            <br>
+    <br>
 
-<body>
-    <div class="main-wrapper account-wrapper">
-        <div class="account-page">
+<div class="main-wrapper account-wrapper" style="background-image:url(https://genetichealing.in/pms/wp-content/uploads/2017/06/slider.jpg);">
+            <div class="account-page">
             <div class="account-center">
-                <div class="account-box">
-                    <form action="index.html" class="form-signin">
 
-                        <div align="center"> <h1>ICU MANAGEMENT SYSTEM </h1></div>
-                        <br>
+               
+                    <form action="index.html" class="form-signin">
+        <table bordercolor= "#00008be" class= "account-box">
+    <tr>
+        <th c><div align="center"> <h2>LOGIN PORTAL</h2></div>
                         
+                                                
                         <div class="account-logo">
-                            <a href="index-2.html"><img src="login/assets/img/logo-dark.png" alt=""></a>
+                            <img src="login/assets/img/logo-dark.png" alt=""></a>
                         </div>
-<div class="form-group">
+<div class="form-group" >
+    
     <label>Member</label>
-    <select size="1" name="UserType" tabindex="1" language=" autofocus="" class="form-control"Javascript" onchange="UserType_onchange()" style="VERTICAL-ALIGN: middle; WIDTH: 360px">
+    <select size="1" name="UserType" tabindex="1" language=" autofocus="" class="form-control"Javascript" onchange="UserType_onchange()" style="VERTICAL-ALIGN: middle">
           <OPTION Value="1" selected>ICU Login</OPTION>
            <OPTION Value="2" >Hospital Login</OPTION>
            <OPTION Value="3" >Doctor Login</OPTION>
@@ -57,13 +66,21 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div></th> 
+    </tr>  
+
     <script src="login/assets/js/jquery-3.2.1.min.js"></script>
     <script src="login/assets/js/popper.min.js"></script>
     <script src="login/assets/js/bootstrap.min.js"></script>
     <script src="login/assets/js/app.js"></script>
-</body>
+    </table>
+    </body>
+
+</form>
+</div>
+</div>
 
 
-<!-- login23:12-->
+
+
 </html>
