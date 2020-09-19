@@ -150,6 +150,15 @@ $phone = e_d('d', $_SESSION["phoneNumber"]);
                                     Register New Doctor
                                 </a>
 
+                                <a href="view_nurses.php">
+                                    <i class="metismenu-icon pe-7s-diamond"></i>
+                                    View All Nurse
+                                </a>
+                                <a href="nurse_register.php">
+                                    <i class="metismenu-icon pe-7s-diamond"></i>
+                                    Register New Nurse
+                                </a>
+
                                 <a href="attendance.php">
                                     <i class="metismenu-icon pe-7s-diamond"></i>
                                     View Attendance
