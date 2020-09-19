@@ -2,7 +2,9 @@
 include "../../assets/fxn.php";
 $user = e_d('e', $_POST["username"]);
 $pass = e_d('e', $_POST["password"]);
-$login = getThis("SELECT `id`, `hospitalId`, `departmentID`, `roomID`, `fullName`, `phoneNumber`,	`emailAddress`,	`dob`, `address`,	`cityID`,	`stateID`,	`countryID`,	`username`,	`password`,	`lastLogin`,	`createdAt`,	`enabled` FROM `nurses` WHERE `username`='$user' AND `password`='$pass' AND `enabled`='1'");
+
+// echo $user;
+$login = getThis("SELECT `id`, `hospitalId`, `departmentID`, `roomID`, `fullName`, `phoneNumber`,	`emailAddress`,	`dob`, `address`,	`cityID`,	`stateID`,	`countryID`,	`createdAt`,	`enabled` FROM `nurses` WHERE `username`='$user' AND `password`='$pass' AND `enabled`='1'");
 if ($login) {
 	$login = $login[0];
 	if ($login["id"] != null) {

@@ -18,6 +18,10 @@
 #############################################################################
 #############################################################################
 
+### September 19,2020 -> (2)
+CREATE TABLE `departments` ( `id` INT NOT NULL AUTO_INCREMENT , `departmentName` TEXT NOT NULL , `enabled` INT(1) NOT NULL DEFAULT '1' , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+CREATE TABLE `qualifications` ( `id` INT NOT NULL AUTO_INCREMENT , `qualificationName` TEXT NOT NULL , `enabled` INT(1) NOT NULL DEFAULT '1' , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
 ### September 16,2020 -> (4)
 ALTER TABLE `nurses` ADD `roomID` INT(11) NOT NULL AFTER `departmentID`;
 

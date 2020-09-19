@@ -140,14 +140,7 @@ $phone = e_d('d', $_SESSION["phoneNumber"]);
                             </li>
                             <li class="app-sidebar__heading">Options</li>
                             <li>
-                                <a href="doctor_token.php">
-                                    <i class="metismenu-icon pe-7s-diamond"></i>
-                                    Generate Token
-                                </a>
-                                <a href="view_doctor_token.php">
-                                    <i class="metismenu-icon pe-7s-diamond"></i>
-                                    View Doctor Token
-                                </a>
+
                                 <a href="view_doctors.php">
                                     <i class="metismenu-icon pe-7s-diamond"></i>
                                     View All Doctor
@@ -156,10 +149,7 @@ $phone = e_d('d', $_SESSION["phoneNumber"]);
                                     <i class="metismenu-icon pe-7s-diamond"></i>
                                     Register New Doctor
                                 </a>
-                                <a href="time_slots.php">
-                                    <i class="metismenu-icon pe-7s-diamond"></i>
-                                    Set OPD Timings
-                                </a>
+
                                 <a href="attendance.php">
                                     <i class="metismenu-icon pe-7s-diamond"></i>
                                     View Attendance
@@ -173,22 +163,7 @@ $phone = e_d('d', $_SESSION["phoneNumber"]);
                                     <i class="metismenu-icon pe-7s-diamond"></i>
                                     Edit Existing Rooms
                                 </a>
-                                <a href="verifyPatient.php">
-                                    <i class="metismenu-icon pe-7s-diamond"></i>
-                                    Patient Admission
-                                </a>
-                                <a href="OTregister.php">
-                                    <i class="metismenu-icon pe-7s-diamond"></i>
-                                    OT Registeration
-                                </a>
-                                <a href="leaveApplications.php">
-                                    <i class="metismenu-icon pe-7s-diamond"></i>
-                                    Leave Applications
-                                </a>
-                                <a href="leave_status.php">
-                                    <i class="metismenu-icon pe-7s-diamond"></i>
-                                    Leave Applications Status
-                                </a>
+
                                 <a href="assign_ipd.php">
                                     <i class="metismenu-icon pe-7s-diamond"></i>
                                     Assign IPD rounds
