@@ -49,15 +49,15 @@
 												<?php } ?>
 											</select></div>
 									</div>
-									<div class="col-md-4">
+									<!-- <div class="col-md-4">
 										<div class="position-relative form-group"><label for="exampleAddress" class="">Consultation Fee</label><input name="fee" placeholder="Consultation Fee in INR" type="number" class="form-control"></div>
-									</div>
-									<div class="col-md-4">
+									</div> -->
+									<!-- <div class="col-md-4">
 										<div class="position-relative form-group"><label for="exampleAddress" class="">Basic Pay</label><input name="bPay" placeholder="Basic Pay Per Month in INR" type="number" class="form-control"></div>
-									</div>
-									<div class="col-md-4">
+									</div> -->
+									<!-- <div class="col-md-4">
 										<div class="position-relative form-group"><label for="exampleAddress" class="">Allowances</label><input name="allowance" placeholder="Allowances Per Month in INR" type="number" class="form-control"></div>
-									</div>
+									</div> -->
 									<div class="col-md-12">
 										<div class="position-relative form-group"><label for="exampleAddress" class="">Address Line 1</label><input name="add1" placeholder="House Number, Landmark" type="text" class="form-control"></div>
 									</div>

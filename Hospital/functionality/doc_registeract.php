@@ -18,9 +18,9 @@ $hospitalID = $_SESSION["UID"];
 $departmentID = $_POST['did'];
 $qualificationID = $_POST['qid'];
 $dob = $_POST['dob'];
-$basicPay = $_POST['bPay'];
-$consultation = $_POST['fee'];
-$allowance = $_POST['allowance'];
+// $basicPay = $_POST['bPay'];
+// $consultation = $_POST['fee'];
+// $allowance = $_POST['allowance'];
 
 // if(isset($_POST['submit']))
 // {
@@ -50,17 +50,17 @@ if(isset($_POST['submit']))
         }
         else
         {
-            $insert_query = doThis("INSERT INTO `doctors`(`hospitalID`, `departmentID`, `qualificationID`, `fullName`, `phoneNumber`, `emailAddress`, `dob`, `addressLine1`, `cityID`, `stateID`, `countryID`, `username`, `password`, `createdAt`,`consultationFee`) VALUES ('$hospitalID','$departmentID','$qualificationID','$name','$phone','$email','$dob','$address','$city','$state','$country','$email','$phone',CURRENT_TIMESTAMP(),'$consultation')");
+            $insert_query = doThis("INSERT INTO `doctors`(`hospitalID`, `departmentID`, `qualificationID`, `fullName`, `phoneNumber`, `emailAddress`, `dob`, `addressLine1`, `cityID`, `stateID`, `countryID`, `username`, `password`, `createdAt`) VALUES ('$hospitalID','$departmentID','$qualificationID','$name','$phone','$email','$dob','$address','$city','$state','$country','$email','$phone',CURRENT_TIMESTAMP())");
             $doctorID = getThis("SELECT `id` FROM `doctors` WHERE `emailAddress`= '$email'");
             $doctorID = $doctorID[0]['id'];
-            $salary_insert = doThis("INSERT INTO `doctorsalary`(`doctorId`, `basicPay`, `allowance`) VALUES ('$doctorID','$basicPay','$allowance')");
+            // $salary_insert = doThis("INSERT INTO `doctorsalary`(`doctorId`, `basicPay`, `allowance`) VALUES ('$doctorID','$basicPay','$allowance')");
 
-            if($insert_query && $salary_insert)
+            if($insert_query)
             {
                 ?>
                 <script>
                     alert("Registration Done. Now You Can Login!!");
-                    window.location = "../index.php";
+                    window.location = "../../index.php";
                     </script>
                     <?php
             }
@@ -68,7 +68,7 @@ if(isset($_POST['submit']))
            {
             ?>
             <script> alert("There is some technical error");
-              window.location='../index.php';
+              window.location='../dashboard.php';
             </script>
             <?php
            }
