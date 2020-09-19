@@ -25,7 +25,7 @@ if (isset($_POST["room"]) == null) {
         </div>
         <div class="row">
         <div class="col-md-12">
-		<form action="selectroom.php" method="post">
+		<form action="dashboard.php" method="post">
 			<div class="wrap-input100">
 				<div class="position-relative form-group"><label for="exampleCity" class=""><span class="label-input100">
 							<h5>ICU Room</h5>
