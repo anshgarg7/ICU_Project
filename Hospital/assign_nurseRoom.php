@@ -1,4 +1,7 @@
-<?php include "dash_common.php" ?>
+<?php
+  include "dash_common.php";
+  $hospitalId = $_SESSION["UID"];
+ ?>
 <!-- form area starts -->
 <div class="app-main__outer">
     <div class="app-main__inner">
@@ -29,7 +32,7 @@
                                 <h5>Nurses</h5>
                             </span></label><select class="form-control" name="nurse" id="nurse_c" required>
                             <option disabled selected>Select Department First</option>
-                            <?php $nurse = getThis("SELECT `id`, `fullName` FROM `nurses` ORDER BY `fullName` ASC") ?>
+                            <?php $nurse = getThis("SELECT `id`, `fullName` FROM `nurses` WHERE `hospitalId`='$hospitalId' ORDER BY `fullName` ASC") ?>
                             <?php foreach ($nurse as $k => $c) { ?>
                                 <option value="<?php echo $c['id']; ?>"><?php echo e_d('d',$c['fullName']); ?></option>
                             <?php } ?>
@@ -41,7 +44,7 @@
                                 <h5>Rooms</h5>
                             </span></label><select class="form-control" name="room" id="room_c" required>
                             <option disabled selected>Select Nurse First</option>
-                            <?php $room = getThis("SELECT `id`, `roomName` FROM `rooms` ORDER BY `roomName` ASC") ?>
+                            <?php $room = getThis("SELECT `id`, `roomName` FROM `rooms` WHERE `hospitalId`='$hospitalId' ORDER BY `roomName` ASC") ?>
                             <?php foreach ($room as $k => $c) { ?>
                                 <option value="<?php echo $c['id']; ?>"><?php echo e_d('d',$c['roomName']); ?></option>
                             <?php } ?>
