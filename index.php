@@ -19,13 +19,14 @@
 
 </head>
 
-<body bgColor='#009efb'>
-    <section id="pagetitle" class="pagetitle dark" style="background-image:url(https://genetichealing.in/pms/wp-content/uploads/2017/06/slider.jpg);">
-        <br>
+<body bgColor='#009efb' class="pagetitle dark" style="background-image:url(https://genetichealing.in/pms/wp-content/uploads/2017/06/slider.jpg);">
+    <section id="pagetitle" 
+    >
+        
         <br>
         <h1 align="center" class="pagetitle-title heading">ICU MANAGEMENT SYSTEM</h1>
         <br>
-        <br>
+        
 
         <div class="main-wrapper account-wrapper" style="background-image:url(https://genetichealing.in/pms/wp-content/uploads/2017/06/slider.jpg);">
             <div class="account-page">
@@ -81,6 +82,12 @@
         <script src="login/assets/js/bootstrap.min.js"></script>
         <script src="login/assets/js/app.js"></script>
         </table>
+    </form>
+</div>
+</div>
+</div>
+</section>
+
 </body>
 
 </form>
