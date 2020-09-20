@@ -32,16 +32,16 @@
 										<div class="position-relative form-group"><label for="examplePassword11" class="">Date Of Birth</label><input name="dob" placeholder="Dob" type="date" class="form-control"></div>
 									</div>
 
-									<div class="col-md-6">
+									<div class="col-md-12">
 										<div class="position-relative form-group"><label for="examplePassword11" class="">Department</label><select name="did" type="number" class="form-control">
 												<option selected disabled>Select Department</option>
 												<?php $departments = getThis("SELECT `id`, `departmentName` FROM `departments` WHERE `enabled`=1"); ?>
 												<?php foreach ($departments as $key => $d) { ?>
-													<option value="<?php echo $d['id']; ?>"><?php echo $d['departmentName']; ?></option>
+													<option value="<?php echo $d['id']; ?>"><?php echo e_d('d', $d['departmentName']); ?></option>
 												<?php } ?>
 											</select></div>
 									</div>
-									
+
 									<div class="col-md-12">
 										<div class="position-relative form-group"><label for="exampleAddress" class="">Address Line 1</label><input name="add1" placeholder="House Number, Landmark" type="text" class="form-control"></div>
 									</div>
