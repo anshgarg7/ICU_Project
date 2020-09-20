@@ -177,6 +177,11 @@ $phone = e_d('d', $_SESSION["phoneNumber"]);
                                     <i class="metismenu-icon pe-7s-diamond"></i>
                                     Assign IPD rounds
                                 </a>
+
+                                <a href="assign_nurseRoom.php">
+                                    <i class="metismenu-icon pe-7s-diamond"></i>
+                                    Assign Nurse to Room
+                                </a>
                             </li>
 
                     </div>

@@ -13,12 +13,12 @@
                 </div>
             </div>
         </div>
-        <form action="ipdround_view.php" method="post">
+        <form action="nurseroom_view.php" method="post">
             <div class="wrap-input100">
                 <div class="position-relative form-group"><label for="exampleCity" class=""><span class="label-input100">
                             <h5>Department</h5>
                         </span></label><select class="form-control" name="department" id="department_c" required>
-                        <option selected disabled>Select Doctor Department</option>
+                        <option selected disabled>Select Nurse Department</option>
                         <?php $department = getThis("SELECT `id`, `departmentName` FROM `departments` ORDER BY `departmentName` ASC") ?>
                         <?php foreach ($department as $k => $c) { ?>
                             <option value="<?php echo $c['id']; ?>"><?php echo e_d('d',$c['departmentName']); ?></option>
@@ -26,12 +26,24 @@
                     </select></div>
                 <div class="wrap-input100">
                     <div class="position-relative form-group"><label for="exampleState" class=""><span class="label-input100">
-                                <h5>Doctors</h5>
-                            </span></label><select class="form-control" name="doctor" id="doctor_c" required>
+                                <h5>Nurses</h5>
+                            </span></label><select class="form-control" name="nurse" id="nurse_c" required>
                             <option disabled selected>Select Department First</option>
-                            <?php $doctor = getThis("SELECT `id`, `fullName` FROM `doctors` ORDER BY `fullName` ASC") ?>
-                            <?php foreach ($doctor as $k => $c) { ?>
+                            <?php $nurse = getThis("SELECT `id`, `fullName` FROM `nurses` ORDER BY `fullName` ASC") ?>
+                            <?php foreach ($nurse as $k => $c) { ?>
                                 <option value="<?php echo $c['id']; ?>"><?php echo e_d('d',$c['fullName']); ?></option>
+                            <?php } ?>
+                        </select></div>
+                </div>
+
+                <div class="wrap-input100">
+                    <div class="position-relative form-group"><label for="exampleState" class=""><span class="label-input100">
+                                <h5>Rooms</h5>
+                            </span></label><select class="form-control" name="room" id="room_c" required>
+                            <option disabled selected>Select Nurse First</option>
+                            <?php $room = getThis("SELECT `id`, `roomName` FROM `rooms` ORDER BY `roomName` ASC") ?>
+                            <?php foreach ($room as $k => $c) { ?>
+                                <option value="<?php echo $c['id']; ?>"><?php echo e_d('d',$c['roomName']); ?></option>
                             <?php } ?>
                         </select></div>
                 </div>
@@ -55,13 +67,13 @@
                 method: 'post',
                 data: 'department=' + departmentID
             }).done(function(departments) {
-                doctors = JSON.parse(departments);
-                $('#doctor_c').empty();
-                $('#doctor_c').append('<option disabled selected>Select Doctor</option>');
-                doctors.forEach(function(doctor) {
-                    $('#doctor_c').append('<option value=' + doctor.id + '>' + doctor.fullName + '</option>');
+                nurses = JSON.parse(departments);
+                $('#nurse_c').empty();
+                $('#nurse_c').append('<option disabled selected>Select Nurse</option>');
+                nurses.forEach(function(nurse) {
+                    $('#nurse_c').append('<option value=' + nurse.id + '>' + nurse.fullName + '</option>');
                 })
-                $('#doctor_c').append('<option value=0>My option is not listed</option>');
+                $('#nurse_c').append('<option value=0>My option is not listed</option>');
             })
         });
     })
