@@ -14,7 +14,7 @@ $email = e_d('$d', $_SESSION["emailAddress"]);
 $phone = e_d('d', $_SESSION["phoneNumber"]);
 $departmentID = $_SESSION["departmentID"];
 $qualificationID = $_SESSION["qualificationID"];
-$hospitalID = $_SESSION["hospitalID"];
+$hospitalID = $_SESSION["hospitalId"];
 
 $hospital = getThis("SELECT `hospitalName` FROM `hospitals` WHERE `id`='$hospitalID'");
 $hospital = $hospital[0];

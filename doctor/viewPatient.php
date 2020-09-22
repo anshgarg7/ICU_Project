@@ -11,9 +11,9 @@ $result = $result[0];
             <div class="page-title-wrapper">
                 <div class="page-title-heading">
 
-                    <div><?php echo $roomName; ?> Room Dashboard
-                        <div class="page-title-subheading"><?php echo $roomDescription; ?>
-                        </div>
+                    <div><h3> Patient Details</h3>
+                        <!-- <div class="page-title-subheading"><?php echo $roomDescription; ?>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -48,7 +48,7 @@ $result = $result[0];
             <div class="col-md-12">
                 <div class="main-card mb-3 card" style="overflow-x:scroll;">
                     <div class="card-body">
-                        <h5 class="card-title">Patient Details</h5>
+                        <!-- <h5 class="card-title">Patient Details</h5> -->
                         <table class="mb-0 table table-striped">
                             <tbody>
                                 <tr>

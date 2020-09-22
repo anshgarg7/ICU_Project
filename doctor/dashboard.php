@@ -43,13 +43,15 @@
         if (isset($_POST["submit"])) {
 
             $roomId = $_POST["room"];
+            $rName = getThis("SELECT `roomName` FROM `rooms` WHERE `id`='$roomId'");
             $patients = getThis("SELECT `id`, `patientID`, `bedID`, `entryTime` from `ipdlog` WHERE `roomID`='$roomId' AND `enabled`= 1");
         ?>
 
             <div class="col-md-12">
                 <div class="main-card mb-3 card" style="overflow-x:scroll;">
                     <div class="card-body">
-                        <h5 class="card-title">ICU Details</h5>
+                        <h4 class="card-title">Room <?php echo e_d('d', $rName[0]['roomName']); ?></h4>
+                        <h5 class="card-title">Patient Details</h5>
                         <table class="mb-0 table table-striped">
                             <thead>
                                 <tr>

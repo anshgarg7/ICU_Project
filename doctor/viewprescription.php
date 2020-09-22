@@ -3,7 +3,7 @@
 
 $prescriptionID = $_GET['id'];
 $prescriptionID = e_d('d',$prescriptionID);
-$prescriptionDetails = getThis("SELECT  `hospitalID`, `doctorID`, `symptoms`, `dietAdvice`, `specialAdvice`, `medicinePrescribed`, `medicineDosage`, `medicineInstructions`, `generatedAt`, `updatedAt`,`days` FROM `prescription` WHERE `id` = '$prescriptionID'");
+$prescriptionDetails = getThis("SELECT `id`, `doctorID`, `symptoms`, `dietAdvice`, `specialAdvice`, `medicinePrescribed`, `medicineDosage`, `medicineInstructions`, `generatedAt` FROM `prescription` WHERE `id` = '$prescriptionID'");
 $prescriptionDetails = $prescriptionDetails[0];
 $hospital = getThis("SELECT `hospitalName` FROM `hospitals` WHERE `id`='$hospitalId'");
 $hospital = $hospital[0];

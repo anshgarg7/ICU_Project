@@ -1,5 +1,7 @@
 <?php
-include "../assets/fxn.php";
+// include "../assets/fxn.php";
+include "dash_common.php";
+
 if (isset($_SESSION["UID"]) == null) {
 ?>
     <script type="text/javascript">
@@ -7,26 +9,27 @@ if (isset($_SESSION["UID"]) == null) {
     </script>
 <?php
 }
-$id = $_SESSION["UID"];
-$name = e_d('d', $_SESSION["fullName"]);
+// $id = $_SESSION["UID"];
+// $name = e_d('d', $_SESSION["fullName"]);
 $email = e_d('d', $_SESSION["emailAddress"]);
 $phone = e_d('d', $_SESSION["phoneNumber"]);
 $departmentID = $_SESSION["departmentID"];
 $qualificationID = $_SESSION["qualificationID"];
-$hospitalID = $_SESSION["hospitalID"];
+// $hospitalID = $_SESSION["hospitalId"];
 
-$hospital = getThis("SELECT `hospitalName` FROM `hospitals` WHERE `id`='$hospitalID'");
+$hospital = getThis("SELECT `hospitalName` FROM `hospitals` WHERE `id`='$hospitalId'");
 $hospital = $hospital[0];
 
+if(isset( $_GET["id"])) {
 $ipdId = $_GET["id"];
 $ipdId = e_d('d', $ipdId);
 
-$ipdDetails = getThis("SELECT `patientId`, `doctorId`, `entryTime` FROM `ipdlog` WHERE `id` = '$ipdId'");
+$ipdDetails = getThis("SELECT `patientId`, `entryTime` FROM `ipdlog` WHERE `id` = '$ipdId'");
 $ipdDetails = $ipdDetails[0];
 $patientId = $ipdDetails['patientId'];
 $patientDetails = getThis("SELECT `id`, `fullName`, `phoneNumber`, `emailAddress`, `previousMedication`, `previousDiseases`, `familyHistory`, `allergicReactions`, `foodHabits`, `insuranceDetails` FROM `patients` WHERE `id`='$patientId'");
 $patientDetails = $patientDetails[0];
-
+}
 ?>
 
 <head>

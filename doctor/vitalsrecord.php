@@ -15,9 +15,9 @@ $hospital = $hospital[0];
                             <div class="page-title-wrapper">
                                 <div class="page-title-heading">
 
-																	<div><?php echo $roomName; ?> Room Dashboard
-							                        <div class="page-title-subheading"><?php echo $roomDescription; ?>
-							                        </div>
+																	<div><h3>Patient's Vitals</h3>
+							                        <!-- <div class="page-title-subheading"><?php echo $roomDescription; ?>
+							                        </div> -->
 							                    </div>
                                 </div>
                                </div>

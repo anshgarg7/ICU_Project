@@ -141,21 +141,21 @@ $hospital = $hospital[0];
                                     Doctor Dashboard
                                 </a>
                             </li>
-                            <li class="app-sidebar__heading">Options</li>
+                            <!-- <li class="app-sidebar__heading">Options</li>
                             <li>
                                 <a href="admit_patient.php">
                                     <i class="metismenu-icon pe-7s-diamond"></i>
                                     Admit Patient
-                                </a>
-                                <a href="previouspatients.php">
+                                </a> -->
+                                <!-- <a href="previouspatients.php">
                                     <i class="metismenu-icon pe-7s-diamond"></i>
                                     Previous Patient Records
-                                </a>
-                                <a href="doctoronduty.php">
+                                </a> -->
+                                <!-- <a href="doctoronduty.php"> 
                                     <i class="metismenu-icon pe-7s-diamond"></i>
                                     Select Doctor on Duty
-                                </a>
-                            </li>
+                                </a> 
+                            </li> -->
                     </div>
                 </div>
             </div>
