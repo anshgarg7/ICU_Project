@@ -8,7 +8,8 @@ if (isset($_SESSION["UID"]) == null) {
 <?php
 }
 $id = $_SESSION["UID"];
-
+$roomName = e_d('d', $_SESSION["roomName"]);
+$roomDescription = e_d('d', $_SESSION["roomDescription"]);
 $hospitalId = $_SESSION["hospitalId"];
 $name = e_d('d', $_SESSION["fullName"]);
 $hospital = getThis("SELECT `hospitalName` FROM `hospitals` WHERE `id`='$hospitalId'");
