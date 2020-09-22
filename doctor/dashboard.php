@@ -1,6 +1,6 @@
 <?php include "dash_common.php"; ?>
 <?php
-if (isset($_POST["room"]) == null) {
+if (isset($_POST["room"]) != null) {
     $patients = getThis("SELECT `id`, `patientID`, `doctorID`, `bedID`, `entryTime` from `ipdlog` WHERE `roomID`='$id' AND `enabled`= 1");
 }?>
 
@@ -46,7 +46,7 @@ if (isset($_POST["room"]) == null) {
 </div>
         </div>
         <?php
-        if(isset($_POST["room"]) == null) {?>
+        if(isset($_POST["room"]) != null) {?>
         <?php
         if (sizeof($patients) == 0) {
         ?>
