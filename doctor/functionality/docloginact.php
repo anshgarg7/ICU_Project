@@ -15,18 +15,9 @@ if ($login) {
 		$_SESSION["phoneNumber"] = $login["phoneNumber"];
 		$_SESSION["emailAddress"] = $login["emailAddress"];
 		doThis("UPDATE `doctors` SET `lastLogin` = CURRENT_TIMESTAMP() WHERE `id`='$id'");
-		
+
 		//roomID absent in doctors table
-		$roomDetails = getThis("SELECT `id`, `hospitalId`, `roomName`, `roomDescription`, `roomLocation`, `roomUsername`, `roomPassword`, `totalBeds`, `generatedAt`, `enabled` FROM `rooms` WHERE `id`=$roomID AND `enabled`='1'");
-		$roomDetails = $roomDetails[0];
-		if ($roomDetails["id"] != null) {
-			$id = $roomDetails["id"];
-			$_SESSION["UID"] = $roomDetails["id"];
-			$_SESSION["roomName"] = $roomDetails["roomName"];
-			$_SESSION["roomDescription"] = $roomDetails["roomDescription"];
-			$_SESSION["roomLocation"] = $roomDetails["roomLocation"];
-			$_SESSION["totalBeds"] = $roomDetails["totalBeds"];
-		}
+
 ?>
 		<script type="text/javascript">
 			window.location = '../dashboard.php';

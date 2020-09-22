@@ -8,8 +8,7 @@ if (isset($_SESSION["UID"]) == null) {
 <?php
 }
 $id = $_SESSION["UID"];
-$roomName = e_d('d', $_SESSION["roomName"]);
-$roomDescription = e_d('d', $_SESSION["roomDescription"]);
+
 $hospitalId = $_SESSION["hospitalId"];
 $name = e_d('d', $_SESSION["fullName"]);
 $hospital = getThis("SELECT `hospitalName` FROM `hospitals` WHERE `id`='$hospitalId'");
@@ -139,7 +138,7 @@ $hospital = $hospital[0];
                             <li>
                                 <a href="dashboard.php" class="mm-active">
                                     <i class="metismenu-icon pe-7s-rocket"></i>
-                                    ICU Dashboard
+                                    Doctor Dashboard
                                 </a>
                             </li>
                             <li class="app-sidebar__heading">Options</li>

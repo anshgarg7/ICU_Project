@@ -1,8 +1,5 @@
-<?php include "dash_common.php"; ?>
-<?php
-if (isset($_POST["room"]) != null) {
-    $patients = getThis("SELECT `id`, `patientID`, `doctorID`, `bedID`, `entryTime` from `ipdlog` WHERE `roomID`='$id' AND `enabled`= 1");
-}?>
+<?php include "dash_common.php";
+?>
 
 <!doctype html>
 <html lang="en">
@@ -16,43 +13,37 @@ if (isset($_POST["room"]) != null) {
             <div class="page-title-wrapper">
                 <div class="page-title-heading">
 
-                    <div><?php echo $roomName; ?> Room Dashboard
-                        <div class="page-title-subheading"><?php echo $roomDescription; ?>
-                        </div>
+                    <div><?php echo $name; ?>'s Dashboard
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
-        <div class="col-md-12">
-		<form action="dashboard.php" method="post">
-			<div class="wrap-input100">
-				<div class="position-relative form-group"><label for="exampleCity" class=""><span class="label-input100">
-							<h5>ICU Room</h5>
-						</span></label><select class="form-control" name="room" id="room_c" required>
-						<option selected disabled>Select ICU Room</option>
-						<?php $room = getThis("SELECT `id`, `roomName` FROM `rooms` ORDER BY `roomName` ASC") ?>
-						<?php foreach ($room as $k => $c) { ?>
-							<option value="<?php echo $c['id']; ?>"><?php echo e_d('d',$c['roomName']); ?></option>
-						<?php } ?>
-					</select></div>
-				<button class="mb-2 mr-2 btn btn-primary btn-lg btn-block" type="submit" name="submit">Select Room</button>
-			</div>
+            <div class="col-md-12">
+                <form action="dashboard.php" method="POST">
+                    <div class="wrap-input100">
+                        <div class="position-relative form-group"><label for="exampleCity" class=""><span class="label-input100">
+                                    <h5>ICU Room</h5>
+                                </span></label><select class="form-control" name="room" id="room_c" required>
+                                <option selected disabled>Select ICU Room</option>
+                                <?php $room = getThis("SELECT `id`, `roomName` FROM `rooms` WHERE `hospitalId`='$hospitalId' ORDER BY `roomName` ASC") ?>
+                                <?php foreach ($room as $k => $c) { ?>
+                                    <option value="<?php echo $c['id']; ?>"><?php echo e_d('d', $c['roomName']); ?></option>
+                                <?php } ?>
+                            </select></div>
+                        <button class="mb-2 mr-2 btn btn-primary btn-lg btn-block" type="submit" name="submit">Select Room</button>
+                    </div>
 
-		</form>
-    </div>
-    </div>
-	</div>
-</div>
+                </form>
+            </div>
         </div>
+
+
         <?php
-        if(isset($_POST["room"]) != null) {?>
-        <?php
-        if (sizeof($patients) == 0) {
-        ?>
-            <h4>There is no patient in this ICU</h4>
-        <?php
-        } else {
+        if (isset($_POST["submit"])) {
+
+            $roomId = $_POST["room"];
+            $patients = getThis("SELECT `id`, `patientID`, `bedID`, `entryTime` from `ipdlog` WHERE `roomID`='$roomId' AND `enabled`= 1");
         ?>
 
             <div class="col-md-12">
@@ -92,7 +83,7 @@ if (isset($_POST["room"]) != null) {
                                             echo e_d('d', $fullName);
                                             ?>
                                         </td>
-                                        <?php $entrytime = date('<b>d M</b> Y <b>h.i.s A</b>',strtotime($patients[$i]['entryTime'])); ?>
+                                        <?php $entrytime = date('<b>d M</b> Y <b>h.i.s A</b>', strtotime($patients[$i]['entryTime'])); ?>
                                         <td><?php echo $entrytime; ?></td>
                                         <td>
                                             <a href="viewPatient.php?id=<?php echo e_d('e', $patients[$i]['id']); ?>" class="btn btn-block btn-primary">View Details</a>
@@ -107,14 +98,14 @@ if (isset($_POST["room"]) != null) {
                     </div>
                 </div>
             </div>
-        <?php 
+        <?php
         }
-        }
+
         ?>
     </div>
-</div>
+    </disv>
 
 
-</body>
+    </body>
 
 </html>
