@@ -8,12 +8,9 @@ if (isset($_SESSION["UID"]) == null) {
 <?php
 }
 $id = $_SESSION["UID"];
-$roomName = e_d('d', $_SESSION["roomName"]);
-$roomDescription = e_d('d', $_SESSION["roomDescription"]);
-$roomLocation = e_d('d', $_SESSION["roomLocation"]);
-$totalBeds = $_SESSION["totalBeds"];
-$hospitalId = $_SESSION["hospitalId"];
 
+$hospitalId = $_SESSION["hospitalId"];
+$name = e_d('d', $_SESSION["fullName"]);
 $hospital = getThis("SELECT `hospitalName` FROM `hospitals` WHERE `id`='$hospitalId'");
 $hospital = $hospital[0];
 
@@ -84,7 +81,7 @@ $hospital = $hospital[0];
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
-                                        <?php echo $roomName; ?>
+                                        <?php echo $name; ?>
                                     </div>
                                     <div class="widget-subheading">
                                         <?php echo e_d('d', $hospital['hospitalName']); ?>
