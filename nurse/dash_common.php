@@ -9,10 +9,10 @@ if (isset($_SESSION["UID"]) == null) {
 }
 $id = $_SESSION["UID"];
 $fullName = e_d('d', $_SESSION["fullName"]);
-$roomName = e_d('d', $_SESSION["roomName"]);
-$roomDescription = e_d('d', $_SESSION["roomDescription"]);
-$roomLocation = e_d('d', $_SESSION["roomLocation"]);
-$totalBeds = $_SESSION["totalBeds"];
+// $roomName = e_d('d', $_SESSION["roomName"]);
+// $roomDescription = e_d('d', $_SESSION["roomDescription"]);
+// $roomLocation = e_d('d', $_SESSION["roomLocation"]);
+// $totalBeds = $_SESSION["totalBeds"];
 $hospitalId = $_SESSION["hospitalId"];
 
 $hospital = getThis("SELECT `hospitalName` FROM `hospitals` WHERE `id`='$hospitalId'");
@@ -142,7 +142,7 @@ $hospital = $hospital[0];
                             <li>
                                 <a href="dashboard.php" class="mm-active">
                                     <i class="metismenu-icon pe-7s-rocket"></i>
-                                    ICU Dashboard
+                                    Nurse Dashboard
                                 </a>
                             </li>
                             <!-- <li class="app-sidebar__heading">Options</li>

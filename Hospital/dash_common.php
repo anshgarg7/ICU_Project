@@ -140,28 +140,13 @@ $phone = e_d('d', $_SESSION["phoneNumber"]);
                             </li>
                             <li class="app-sidebar__heading">Options</li>
                             <li>
-
-                                <a href="view_doctors.php">
-                                    <i class="metismenu-icon pe-7s-diamond"></i>
-                                    View All Doctor
-                                </a>
                                 <a href="doctor_register.php">
                                     <i class="metismenu-icon pe-7s-diamond"></i>
                                     Register New Doctor
                                 </a>
-
-                                <a href="view_nurses.php">
-                                    <i class="metismenu-icon pe-7s-diamond"></i>
-                                    View All Nurse
-                                </a>
                                 <a href="nurse_register.php">
                                     <i class="metismenu-icon pe-7s-diamond"></i>
                                     Register New Nurse
-                                </a>
-
-                                <a href="attendance.php">
-                                    <i class="metismenu-icon pe-7s-diamond"></i>
-                                    View Attendance
                                 </a>
                                 <a href="new_room.php">
                                     <i class="metismenu-icon pe-7s-diamond"></i>
@@ -172,10 +157,23 @@ $phone = e_d('d', $_SESSION["phoneNumber"]);
                                     <i class="metismenu-icon pe-7s-diamond"></i>
                                     Edit Existing Rooms
                                 </a>
+                                <a href="view_doctors.php">
+                                    <i class="metismenu-icon pe-7s-diamond"></i>
+                                    View All Doctor
+                                </a>
+
+                                <a href="view_nurses.php">
+                                    <i class="metismenu-icon pe-7s-diamond"></i>
+                                    View All Nurse
+                                </a>
+
+
+
+
 
                                 <a href="assign_ipd.php">
                                     <i class="metismenu-icon pe-7s-diamond"></i>
-                                    Assign IPD rounds
+                                    Assign ICU Inspection
                                 </a>
 
                                 <a href="assign_nurseRoom.php">

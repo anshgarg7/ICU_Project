@@ -28,7 +28,6 @@ $rooms = getThis("SELECT  `id`,`roomName`, `roomDescription`, `roomLocation`, `t
                                 <th>#</th>
                                 <th>Room Name</th>
                                 <th>Description</th>
-                                <th>No. Of Beds</th>
                                 <th>Location</th>
                                 <th>Action</th>
                             </tr>
@@ -45,9 +44,7 @@ $rooms = getThis("SELECT  `id`,`roomName`, `roomDescription`, `roomLocation`, `t
                                     <td>
                                         <?php echo e_d('d', $rooms[$i]['roomDescription']); ?>
                                     </td>
-                                    <td>
-                                        <?php echo $rooms[$i]['totalBeds']; ?>
-                                    </td>
+
                                     <td>
                                         <?php echo e_d('d', $rooms[$i]['roomLocation']); ?>
                                     </td>

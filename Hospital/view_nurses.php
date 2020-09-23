@@ -35,7 +35,7 @@ if (isset($check['department']) != null && $check['department'] != '0') {
                 <option selected disabled>Select Nurse Department</option>
                 <?php $department = getThis("SELECT `id`, `departmentName` FROM `departments` ORDER BY `departmentName` ASC") ?>
                 <?php foreach ($department as $k => $c) { ?>
-                  <option value="<?php echo $c['id']; ?>"><?php echo $c['departmentName']; ?></option>
+                  <option value="<?php echo $c['id']; ?>"><?php echo e_d('d', $c['departmentName']); ?></option>
                 <?php } ?>
                 <option value="<?php echo '0'; ?>">All Departments</option>
               </select></div>
@@ -71,7 +71,7 @@ if (isset($check['department']) != null && $check['department'] != '0') {
                       <?php echo e_d('d', $UL['emailAddress']); ?>
                     </td>
                     <td>
-                      <?php echo $UL['departmentName']; ?>
+                      <?php echo e_d('d', $UL['departmentName']); ?>
                     </td>
                     <td>
                       <?php $date = date('<b>d M</b> Y <b>h.i.s A</b>', strtotime($UL['createdAt'])); ?>

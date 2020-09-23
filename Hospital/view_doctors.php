@@ -5,9 +5,9 @@ if (isset($check['department']) != null && $check['department'] != '0') {
   $departmentID = $check['department'];
 
   // $result = getThis("SELECT doctors.`fullName`, doctors.`phoneNumber`,doctoken.`token`,doctoken.`generatedAt`,doctoken.`lastLoginAt`, doctoken.`lastLogoutAt` FROM `doctors`,`doctoken` WHERE doctors.`tokenID` = doctoken.`id` AND doctors.`enabled`=1 AND doctoken.`enabled`=1 AND doctors.`departmentID`= '$departmentID' AND doctors.`hospitalID` = '$id'");
-  $result = getThis("SELECT doctors.`id`, doctors.`fullName`, doctors.`phoneNumber`, doctors.`emailAddress`, doctors.`dob`, doctors.`addressLine1`, doctors.`cityID`, doctors.`stateID`, doctors.`countryID`, doctors.`username`,  doctors.`lastLogin`, doctors.`createdAt`, departments.`departmentName`, qualifications.`qualificationName` FROM `doctors`, `departments`, `qualifications` WHERE `hospitalID` ='$id' AND doctors.`enabled`=1 AND departments.`enabled`=1 AND doctors.`departmentID`=departments.`id` AND doctors.`departmentID` = '$departmentID' AND doctors.`qualificationID` = qualifications.`id` ORDER BY doctors.`departmentID` ASC");
+  $result = getThis("SELECT doctors.`id`, doctors.`fullName`, doctors.`phoneNumber`, doctors.`emailAddress`, doctors.`dob`, doctors.`addressLine1`, doctors.`cityID`, doctors.`stateID`, doctors.`countryID`, doctors.`username`,  doctors.`lastLogin`, doctors.`createdAt`, departments.`departmentName` FROM `doctors`, `departments` WHERE `hospitalID` ='$id' AND doctors.`enabled`=1 AND departments.`enabled`=1 AND doctors.`departmentID`=departments.`id` AND doctors.`departmentID` = '$departmentID' ORDER BY doctors.`departmentID` ASC");
 } else {
-  $result = getThis("SELECT doctors.`id`, doctors.`fullName`, doctors.`phoneNumber`, doctors.`emailAddress`, doctors.`dob`, doctors.`addressLine1`, doctors.`cityID`, doctors.`stateID`, doctors.`countryID`, doctors.`username`,  doctors.`lastLogin`, doctors.`createdAt`, departments.`departmentName`, qualifications.`qualificationName` FROM `doctors`, `departments`, `qualifications` WHERE `hospitalID` = '$id' AND doctors.`enabled`=1 AND departments.`enabled`=1 AND doctors.`departmentID`=departments.`id` AND doctors.`qualificationID` = qualifications.`id`  ORDER BY doctors.`departmentID` ASC");
+  $result = getThis("SELECT doctors.`id`, doctors.`fullName`, doctors.`phoneNumber`, doctors.`emailAddress`, doctors.`dob`, doctors.`addressLine1`, doctors.`cityID`, doctors.`stateID`, doctors.`countryID`, doctors.`username`,  doctors.`lastLogin`, doctors.`createdAt`, departments.`departmentName` FROM `doctors`, `departments` WHERE `hospitalID` = '$id' AND doctors.`enabled`=1 AND departments.`enabled`=1 AND doctors.`departmentID`=departments.`id` ORDER BY doctors.`departmentID` ASC");
 }
 
 ?>
@@ -35,7 +35,7 @@ if (isset($check['department']) != null && $check['department'] != '0') {
                 <option selected disabled>Select Doctor Department</option>
                 <?php $department = getThis("SELECT `id`, `departmentName` FROM `departments` ORDER BY `departmentName` ASC") ?>
                 <?php foreach ($department as $k => $c) { ?>
-                  <option value="<?php echo $c['id']; ?>"><?php echo $c['departmentName']; ?></option>
+                  <option value="<?php echo $c['id']; ?>"><?php echo e_d('d', $c['departmentName']); ?></option>
                 <?php } ?>
                 <option value="<?php echo '0'; ?>">All Departments</option>
               </select></div>
@@ -54,7 +54,7 @@ if (isset($check['department']) != null && $check['department'] != '0') {
                   <th>Doctor</th>
                   <th>Department</th>
                   <th>Joined On</th>
-                  <th>Availabilty</th>
+
                   <th>Actions</th>
                 </tr>
               </thead>
@@ -65,32 +65,20 @@ if (isset($check['department']) != null && $check['department'] != '0') {
                   <tr>
                     <th>#</th>
                     <td>
-                      <?php echo e_d('d', $UL['fullName']) . "(" . $UL['qualificationName'] . ")"; ?>
+                      <?php echo e_d('d', $UL['fullName']); ?>
                       <hr style="margin:2px;">
                       <?php echo e_d('d', $UL['phoneNumber']); ?>
                       <hr style="margin:2px;">
                       <?php echo e_d('d', $UL['emailAddress']); ?>
                     </td>
                     <td>
-                      <?php echo $UL['departmentName']; ?>
+                      <?php echo e_d('d', $UL['departmentName']); ?>
                     </td>
                     <td>
                       <?php $date = date('<b>d M</b> Y <b>h.i.s A</b>', strtotime($UL['createdAt'])); ?>
                       <?php echo $date; ?>
                     </td>
-                    <td>
-                      <?php $available = $UL['currentActivity'];
-                      if ($available == 1) {
-                        echo "Available In Cabin";
-                      } else if ($available == 2) {
-                        echo "On An IPD inspection";
-                      } else if ($available == 3) {
-                        echo "In a Surgery";
-                      } else if ($available == 0) {
-                        echo "Unavailable Right Now";
-                      }
-                      ?>
-                    </td>
+
                     <td>
                       <a class="mb-2 mr-2 btn btn-primary" id="<?php echo $UL['id']; ?>" href="doctor.php?id=<?php echo e_d('e', $UL['id']); ?>">View</a>
                       <a class="mb-2 mr-2 btn btn-primary" id="<?php echo $UL['id']; ?>" href="update_doctor.php?id=<?php echo e_d('e', $UL['id']); ?>">Update</a>

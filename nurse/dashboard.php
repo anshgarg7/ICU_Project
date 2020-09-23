@@ -1,6 +1,7 @@
 <?php include "dash_common.php"; ?>
 <?php
 
+
 $patients = getThis("SELECT `id`, `patientID`, `hospitalID`, `bedID`, `entryTime` from `ipdlog` WHERE `roomID`='$id' AND `enabled`= 1");
 
 ?>
@@ -16,9 +17,8 @@ $patients = getThis("SELECT `id`, `patientID`, `hospitalID`, `bedID`, `entryTime
             <div class="page-title-wrapper">
                 <div class="page-title-heading">
 
-                    <div><?php echo $roomName; ?> Room Dashboard
-                        <div class="page-title-subheading"><?php echo $roomDescription; ?>
-                        </div>
+                    <div><?php echo $fullName; ?>'s Dashboard
+
                     </div>
                 </div>
             </div>
@@ -69,7 +69,7 @@ $patients = getThis("SELECT `id`, `patientID`, `hospitalID`, `bedID`, `entryTime
                                             echo e_d('d', $fullName);
                                             ?>
                                         </td>
-                                        <?php $entrytime = date('<b>d M</b> Y <b>h.i.s A</b>',strtotime($patients[$i]['entryTime'])); ?>
+                                        <?php $entrytime = date('<b>d M</b> Y <b>h.i.s A</b>', strtotime($patients[$i]['entryTime'])); ?>
                                         <td><?php echo $entrytime; ?></td>
                                         <td>
                                             <a href="viewPatient.php?id=<?php echo e_d('e', $patients[$i]['id']); ?>" class="btn btn-block btn-primary">View Details</a>
