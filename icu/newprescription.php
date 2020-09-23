@@ -1,4 +1,14 @@
-<?php include "dash_common.php"; ?>
+<?php include "dash_common.php";
+
+if (isset($_SESSION['doctor']) == NULL) {
+?>
+	<script>
+		alert("Doctor not set!!");
+		window.location = "doctoronduty.php";
+	</script>
+<?php
+}
+?>
 
 <!-- form area starts -->
 <div class="app-main__outer">

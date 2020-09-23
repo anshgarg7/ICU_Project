@@ -31,9 +31,12 @@ $labtestsdata = serialize($labtestsdata);
 $labtestsdata = e_d('e', $labtestsdata);
 $dietadvice = e_d('e', $_POST['diet']);
 $specialadvice = e_d('e', $_POST['special']);
+$doctorID = $_SESSION['doctor'];
+
+
 
 if (isset($_POST['submit'])) {
-  $prescriptionID = doThis("INSERT INTO `prescription`(`ipdID`,`symptoms`, `dietAdvice`, `specialAdvice`,`doctorFindings`,`doctorDiagnosis`,`labTestAdvice` ,`medicinePrescribed`, `medicineDosage`, `medicineInstructions`, `generatedAt`) VALUES ('$ipdID','$symptomsdata','$dietadvice','$specialadvice','$findingsdata','$diagnosisdata','$labtestsdata','$meddata','$dosedata','$instructdata', CURRENT_TIMESTAMP())");
+  $prescriptionID = doThis("INSERT INTO `prescription`(`doctorID`,`ipdID`,`symptoms`, `dietAdvice`, `specialAdvice`,`doctorFindings`,`doctorDiagnosis`,`labTestAdvice` ,`medicinePrescribed`, `medicineDosage`, `medicineInstructions`, `generatedAt`) VALUES ('$doctorID','$ipdID','$symptomsdata','$dietadvice','$specialadvice','$findingsdata','$diagnosisdata','$labtestsdata','$meddata','$dosedata','$instructdata', CURRENT_TIMESTAMP())");
 
   // $prescriptionID = doThis("INSERT INTO `prescription`(`hospitalID`, `doctorID`, `patientID`, `symptoms`, `dietAdvice`, `specialAdvice`,`doctorFindings`,`doctorDiagnosis`,`patientVitals`,`labTestAdvice` ,`medicinePrescribed`, `medicineDosage`, `medicineInstructions`) VALUES ('$hospitalID','$doctorID','$patientID','$symptomsdata','$dietadvice','$specialadvice','$findingsdata','$diagnosisdata','$vitalsdata','$labtestsdata','$meddata','$dosedata','$instructdata')");
 
