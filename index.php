@@ -23,7 +23,7 @@
     <section id="pagetitle">
 
         <br>
-        <h1 align="center" class="pagetitle-title heading">ICU MANAGEMENT PORTAL</h1>
+        <h1 align="center" class="pagetitle-title heading">ICU MANAGEMENT SYSTEM</h1>
         <br>
 
 
