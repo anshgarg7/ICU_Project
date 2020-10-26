@@ -1,6 +1,6 @@
 <?php include "dash_common.php"; ?>
 <?php
-$patients = getThis("SELECT `id`, `patientID`, `bedID`, `doctorRemarks`, `entryTime`, `exitTime` from `ipdlog` WHERE `roomID`='$id' AND `enabled`= 0");
+$patients = getThis("SELECT * from `ipdlog` WHERE `roomID`='$id' AND `enabled`= 0");
 
 ?>
 <!doctype html>
@@ -57,7 +57,7 @@ $patients = getThis("SELECT `id`, `patientID`, `bedID`, `doctorRemarks`, `entryT
                                         </td>
                                         <td>
                                             <?php
-                                            $x = $patients[$i]['patientID'];
+                                            $x = $patients[$i]['patientId'];
                                             $name = getThis("SELECT `id`, `fullName` FROM `patients` WHERE `id` = '$x'");
                                             $fullName = $name[0]['fullName'];
                                             echo e_d('d', $fullName);
@@ -65,7 +65,7 @@ $patients = getThis("SELECT `id`, `patientID`, `bedID`, `doctorRemarks`, `entryT
                                         </td>
                                         <td>
                                             <?php
-                                            $x = $patients[$i]['doctorID'];
+                                            $x = $patients[$i]['doctorId'];
                                             $docName = getThis("SELECT `fullName` FROM `doctors` WHERE `id` = '$x'");
                                             $docName = $docName[0]['fullName'];
                                             echo e_d('d', $docName);

@@ -46,6 +46,14 @@ $result = $result[0];
             </div>
 
             <div class="col-md-12">
+                <div class="main-card mb-3 card">
+                    <div class="card-body">
+                        <a class="mb-2 mr-2 btn btn-primary btn-lg btn-block" href="icumedication.php?id=<?php echo e_d('e', $ipdId); ?>">ICU Medication</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
                 <div class="main-card mb-3 card" style="overflow-x:scroll;">
                     <div class="card-body">
                         <h5 class="card-title">Patient Details</h5>
