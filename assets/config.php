@@ -2,8 +2,8 @@
 session_start();
 // Database Configrations
 $d_username = "root"; //database username
-$d_password = "root"; //database password
-$d_host = "54.210.194.69"; //database host name
+$d_password = ""; //database password
+$d_host = "http://54.210.194.69/"; //database host name
 $d_database = "icu"; //database name
 $con = new mysqli($d_host, $d_username, $d_password, $d_database);
 // Date Time Configrations
