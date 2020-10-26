@@ -3,6 +3,7 @@ session_start();
 // Database Configrations
 $d_username = "root"; //database username
 $d_password = "root"; //database password
+// change the password to "" when developing on your local machine 
 $d_host = "localhost"; //database host name
 $d_database = "icu"; //database name
 $con = new mysqli($d_host, $d_username, $d_password, $d_database);
