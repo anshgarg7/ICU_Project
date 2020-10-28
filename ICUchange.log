@@ -18,6 +18,9 @@
 #############################################################################
 #############################################################################
 
+### Octorber 28,2020 -> (2)
+CREATE TABLE `medication` ( `id` INT NOT NULL AUTO_INCREMENT , `nurseID` INT NOT NULL , `ipdID` INT NOT NULL , `medicineID` INT NOT NULL , `generatedAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , `enabled` INT NOT NULL DEFAULT '0' , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
 ### September 19,2020 -> (2)
 CREATE TABLE `departments` ( `id` INT NOT NULL AUTO_INCREMENT , `departmentName` TEXT NOT NULL , `enabled` INT(1) NOT NULL DEFAULT '1' , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 CREATE TABLE `qualifications` ( `id` INT NOT NULL AUTO_INCREMENT , `qualificationName` TEXT NOT NULL , `enabled` INT(1) NOT NULL DEFAULT '1' , PRIMARY KEY (`id`)) ENGINE = InnoDB;
