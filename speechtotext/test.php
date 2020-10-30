@@ -8,11 +8,7 @@
 </head>
 
 <body>
-    <input type="file" accept="audio/*;capture=microphone">
-    <?php
-    $output = shell_exec('python3 /opt/lampp/htdocs/speechtotext/stt.py');
-    echo $output;
-    ?>
+    <p>Hey i am testing this shit</p>
 </body>
 
 </html>
